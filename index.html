@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HadeelBeauty | أدوات التجميل والعناية بالبشرة</title>
+<meta name="description" content="HadeelBeauty - أدوات تجميل ومستحضرات عناية بالبشرة أصلية. الدفع عند الاستلام في جميع ولايات الجزائر." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="logo" data-action="go-shop">
+      <svg class="logo-icon" viewBox="0 0 40 40" width="30" height="30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="hdbLogoGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#c79ddb"/>
+            <stop offset="1" stop-color="#6f4390"/>
+          </linearGradient>
+        </defs>
+        <circle cx="20" cy="20" r="20" fill="url(#hdbLogoGrad)"/>
+        <path d="M20 5 Q23 17 35 20 Q23 23 20 35 Q17 23 5 20 Q17 17 20 5 Z" fill="#fbf5fd"/>
+        <circle cx="20" cy="20" r="2.6" fill="#6f4390"/>
+      </svg>
+      <span class="logo-text">HadeelBeauty</span>
+    </a>
+    <button class="cart-btn" data-action="open-cart" aria-label="السلة">
+      🛍️ السلة
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <h1>جمالك يستحق الأفضل</h1>
+      <p>أدوات تجميل ومستحضرات عناية بالبشرة مختارة بعناية — الدفع عند الاستلام في جميع ولايات الجزائر</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2 class="section-title">منتجاتنا</h2>
+    <div id="productGrid" class="product-grid">
+      <p class="loading">جاري تحميل المنتجات...</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>HadeelBeauty © 2026 — جميع الحقوق محفوظة</p>
+    <p class="muted">الدفع عند الاستلام فقط · التوصيل لجميع ولايات الجزائر</p>
+  </div>
+</footer>
+
+<!-- Product detail modal -->
+<div class="overlay" id="productOverlay" hidden>
+  <div class="modal product-modal">
+    <button class="modal-close" data-action="close-product">✕</button>
+    <div id="productModalBody"></div>
+  </div>
+</div>
+
+<!-- Cart drawer -->
+<div class="overlay" id="cartOverlay" hidden>
+  <div class="modal cart-modal">
+    <button class="modal-close" data-action="close-cart">✕</button>
+    <h2>سلة المشتريات</h2>
+    <div id="cartItems"></div>
+    <div class="cart-summary">
+      <div class="cart-total-row">
+        <span>المجموع الفرعي</span>
+        <strong id="cartTotal">0 دج</strong>
+      </div>
+      <p class="muted shipping-hint">يُضاف رسوم التوصيل حسب الولاية عند إتمام الطلب</p>
+      <button class="btn btn-primary btn-block" id="checkoutBtn" data-action="go-checkout">إتمام الطلب</button>
+    </div>
+  </div>
+</div>
+
+<!-- Checkout modal -->
+<div class="overlay" id="checkoutOverlay" hidden>
+  <div class="modal checkout-modal">
+    <button class="modal-close" data-action="close-checkout">✕</button>
+    <h2>بيانات التوصيل</h2>
+    <form id="checkoutForm">
+      <label>الاسم الكامل
+        <input type="text" name="name" required minlength="2" maxlength="80" placeholder="مثال: هديل بن علي" />
+      </label>
+      <label>رقم الهاتف
+        <input type="tel" name="phone" required placeholder="05xxxxxxxx" inputmode="numeric" />
+      </label>
+      <label>الولاية
+        <select name="regionId" id="regionSelect" required>
+          <option value="" disabled selected>اختر الولاية</option>
+        </select>
+      </label>
+      <label>البلدية / المدينة
+        <input type="text" name="city" required minlength="2" maxlength="60" placeholder="مثال: حيدرة" />
+      </label>
+      <label>العنوان بالتفصيل
+        <textarea name="address" required minlength="5" maxlength="240" placeholder="الحي، الشارع، رقم المنزل..."></textarea>
+      </label>
+      <div class="checkout-summary" id="checkoutSummary">
+        <div class="summary-row"><span>المجموع الفرعي</span><span id="summarySubtotal">0 دج</span></div>
+        <div class="summary-row"><span>التوصيل</span><span id="summaryShipping">—</span></div>
+        <div class="summary-row summary-total"><span>الإجمالي</span><span id="summaryTotal">0 دج</span></div>
+      </div>
+      <div class="cod-note">💵 الدفع عند الاستلام — لا حاجة لبطاقة ائتمان</div>
+      <p class="form-error" id="checkoutError" hidden></p>
+      <button type="submit" class="btn btn-primary btn-block" id="submitOrderBtn">تأكيد الطلب</button>
+    </form>
+  </div>
+</div>
+
+<!-- Thank you modal -->
+<div class="overlay" id="thankYouOverlay" hidden>
+  <div class="modal thankyou-modal">
+    <div class="thankyou-icon">✅</div>
+    <h2>تم استلام طلبك بنجاح!</h2>
+    <p>رقم الطلب: <strong id="thankYouOrderId"></strong></p>
+    <p class="muted">سنتواصل معك قريباً لتأكيد التوصيل. الدفع عند الاستلام.</p>
+    <button class="btn btn-primary" data-action="close-thankyou">متابعة التسوق</button>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hdbFaviconGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c79ddb"/>
+      <stop offset="1" stop-color="#6f4390"/>
+    </linearGradient>
+  </defs>
+  <circle cx="20" cy="20" r="20" fill="url(#hdbFaviconGrad)"/>
+  <path d="M20 5 Q23 17 35 20 Q23 23 20 35 Q17 23 5 20 Q17 17 20 5 Z" fill="#fbf5fd"/>
+  <circle cx="20" cy="20" r="2.6" fill="#6f4390"/>
+</svg>
