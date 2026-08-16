@@ -120,7 +120,33 @@
   // -------------------------------------------------------------------
   // Products
   // -------------------------------------------------------------------
-  function fmtPrice(price) { return price + " دج"; }
+  function fmtPrice(price) { return price.toLocaleString("ar-DZ") + " دج"; }
+
+  function productMeta(productId) {
+    var meta = (CONFIG.PRODUCT_META || {})[productId] || {};
+    return {
+      emoji: meta.emoji || "✨",
+      category: meta.category || "تجميل",
+      gradient: meta.gradient || "linear-gradient(135deg, #f3e8f8, #d4b8e8)",
+    };
+  }
+
+  function renderProductThumb(p) {
+    if (p.image) {
+      return '<img src="' + escapeAttr(p.image) + '" alt="' + escapeAttr(p.name) + '" loading="lazy" />';
+    }
+    var meta = productMeta(p.id);
+    return (
+      '<div class="product-thumb-placeholder" style="background:' + meta.gradient + '">' +
+        '<span aria-hidden="true">' + meta.emoji + '</span>' +
+      '</div>'
+    );
+  }
+
+  function renderProductCategory(p) {
+    var cat = productMeta(p.id).category;
+    return '<span class="product-category">' + escapeHtml(cat) + '</span>';
+  }
 
   function loadProducts() {
     fetch(apiUrl("/api/products"))
@@ -142,18 +168,21 @@
       return;
     }
     grid.innerHTML = products.map(function (p) {
-      var thumb = p.image
-        ? '<img src="' + escapeAttr(p.image) + '" alt="' + escapeAttr(p.name) + '" />'
-        : "✨";
       return (
-        '<div class="product-card" data-product-id="' + escapeAttr(p.id) + '" data-action="open-product">' +
-          '<div class="product-thumb">' + thumb + "</div>" +
+        '<article class="product-card" data-product-id="' + escapeAttr(p.id) + '" data-action="open-product">' +
+          '<div class="product-thumb">' +
+            renderProductCategory(p) +
+            renderProductThumb(p) +
+          '</div>' +
           '<div class="product-info">' +
             "<h3>" + escapeHtml(p.name) + "</h3>" +
             '<p class="product-desc">' + escapeHtml(p.description || "") + "</p>" +
-            '<span class="product-price">' + fmtPrice(p.price) + "</span>" +
+            '<div class="product-footer">' +
+              '<span class="product-price">' + fmtPrice(p.price) + "</span>" +
+              '<span class="product-cod">COD</span>' +
+            '</div>' +
           "</div>" +
-        "</div>"
+        "</article>"
       );
     }).join("");
   }
@@ -211,12 +240,11 @@
     if (!p) return;
     state.activeProductId = productId;
 
-    var thumb = p.image
-      ? '<img src="' + escapeAttr(p.image) + '" alt="' + escapeAttr(p.name) + '" />'
-      : "✨";
+    var thumb = renderProductThumb(p);
 
     $("#productModalBody").innerHTML = (
       '<div class="product-modal-thumb">' + thumb + "</div>" +
+      '<p class="muted" style="margin:0 0 8px;font-weight:800">' + escapeHtml(productMeta(p.id).category) + '</p>' +
       "<h2>" + escapeHtml(p.name) + "</h2>" +
       '<p class="muted">' + escapeHtml(p.description || "") + "</p>" +
       '<div class="product-price">' + fmtPrice(p.price) + "</div>" +
