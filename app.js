@@ -127,7 +127,7 @@
     return {
       emoji: meta.emoji || "✨",
       category: meta.category || "تجميل",
-      gradient: meta.gradient || "linear-gradient(135deg, #f3e8f8, #d4b8e8)",
+      gradient: meta.gradient || "linear-gradient(135deg, #e8f5d0, #84D318)",
     };
   }
 
