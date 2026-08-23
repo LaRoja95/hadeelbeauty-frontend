@@ -123,6 +123,18 @@
 
   function fmtPrice(n) { return n.toLocaleString("ar-DZ") + " دج"; }
 
+  function isValidDzPhone(raw) {
+    var digits = String(raw || "").replace(/\D/g, "");
+    if (digits.indexOf("213") === 0) {
+      var rest = digits.slice(3);
+      if (rest.charAt(0) === "0") rest = rest.slice(1);
+      return rest.length === 9 && /^[567]\d{8}$/.test(rest);
+    }
+    return /^0[567]\d{8}$/.test(digits);
+  }
+
+  var PHONE_ERROR = "رقم الهاتف يجب أن يبدأ بـ 05 أو 06 أو 07 (10 أرقام) أو +213";
+
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -227,6 +239,12 @@
     var region = state.regions[regionId];
     if (!regionId || !region) {
       errorEl.textContent = "الرجاء اختيار الولاية";
+      errorEl.hidden = false;
+      return;
+    }
+
+    if (!isValidDzPhone(form.phone.value.trim())) {
+      errorEl.textContent = PHONE_ERROR;
       errorEl.hidden = false;
       return;
     }
@@ -403,7 +421,7 @@
                 '</label>' +
                 '<label class="pd-field">' +
                   '<span class="pd-field-label">رقم الهاتف</span>' +
-                  '<input type="tel" name="phone" required placeholder="06xxxxxxxx" inputmode="numeric" autocomplete="tel" />' +
+                  '<input type="tel" name="phone" required placeholder="05xxxxxxxx أو +2135xxxxxxxx" inputmode="tel" autocomplete="tel" />' +
                 '</label>' +
                 '<label class="pd-field">' +
                   '<span class="pd-field-label">الولاية</span>' +

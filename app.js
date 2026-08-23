@@ -130,6 +130,18 @@
 
   function fmtPrice(price) { return price.toLocaleString("ar-DZ") + " دج"; }
 
+  function isValidDzPhone(raw) {
+    var digits = String(raw || "").replace(/\D/g, "");
+    if (digits.indexOf("213") === 0) {
+      var rest = digits.slice(3);
+      if (rest.charAt(0) === "0") rest = rest.slice(1);
+      return rest.length === 9 && /^[567]\d{8}$/.test(rest);
+    }
+    return /^0[567]\d{8}$/.test(digits);
+  }
+
+  var PHONE_ERROR = "رقم الهاتف يجب أن يبدأ بـ 05 أو 06 أو 07 (10 أرقام) أو +213";
+
   function productMeta(productId) {
     var meta = (CONFIG.PRODUCT_META || {})[productId] || {};
     return {
@@ -425,6 +437,12 @@
 
     if (!payload.regionId) {
       errorEl.textContent = "الرجاء اختيار الولاية";
+      errorEl.hidden = false;
+      return;
+    }
+
+    if (!isValidDzPhone(payload.phone)) {
+      errorEl.textContent = PHONE_ERROR;
       errorEl.hidden = false;
       return;
     }
