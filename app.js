@@ -1,8 +1,6 @@
-/* HadeelBeauty storefront logic.
+/* Hadeel Beauty (هديل بيوتي) storefront logic — Algérie
  * No frameworks — vanilla JS. Talks to the FastAPI backend for products
- * and orders, and mirrors key events to TikTok Pixel (client) + the
- * server-side /api/e relay (CAPI) using a shared event_id per occurrence
- * so TikTok can de-duplicate browser vs. server events correctly.
+ * and orders, and mirrors key events to Meta pixel when configured.
  */
 
 (function () {
@@ -10,19 +8,94 @@
 
   var CONFIG = window.HADEELBEAUTY_CONFIG || {};
   var API_BASE = (CONFIG.API_BASE || "").replace(/\/$/, "");
-  var PIXEL_ID = CONFIG.TIKTOK_PIXEL_ID || "";
+  var TRACK = window.HadeelBeautyTracking || {};
   var CART_KEY = "hadeelbeauty_cart_v1";
 
+  var FALLBACK_PRODUCTS = [
+    {
+      id: "scar-gel-tcm",
+      name: "جل مرهم لإزالة آثار الندبات وحب الشباب",
+      description: "تركيبة TCM بسنتيلا آسياتيكا ونياسيناميد — 30 جرام.",
+      price: 3990,
+      image: "assets/products/scar-gel/hero-product.png?v=3",
+    },
+    {
+      id: "niacinamide-txa-serum",
+      name: "سيروم TXA + نياسيناميد 15% لتفتيح البقع",
+      description: "سيروم مركز — TXA + نياسيناميد 15% — 30 مل.",
+      price: 3790,
+      image: "assets/products/niacinamide-serum/hero-product.png?v=1",
+    },
+    {
+      id: "spf50-centella-sunscreen",
+      name: "واقي شمس SPF 50+ بسنتيلا آسياتيكا",
+      description: "حماية يومية SPF 50+ — 50 مل.",
+      price: 3790,
+      image: "assets/products/spf50-sunscreen/hero-product.png?v=1",
+    },
+    {
+      id: "ceramide-barrier-cream",
+      name: "كريم حاجز البشرة — سيراميد + هيالورون",
+      description: "ترطيب وتقوية حاجز البشرة — 50 جم.",
+      price: 3790,
+      image: "assets/products/ceramide-cream/hero-product.png?v=1",
+    },
+    {
+      id: "arbutin-txa-cream",
+      name: "كريم يومي أربوتين 7% + TXA 4% — توحيد اللون",
+      description: "ترطيب يومي + تفتيح البقع — 50 مل.",
+      price: 3790,
+      image: "assets/products/arbutin-cream/hero-product.png?v=1",
+    },
+    {
+      id: "hair-regrowth-spray",
+      name: "بخاخ دعم نمو الشعر — تركيبة عشبية",
+      description: "رذاذ لفروة الرأس — تقوية وتقليل التساقط — 50 مل.",
+      price: 3990,
+      image: "assets/products/hair-spray/hero-product.png?v=1",
+    },
+  ];
+
+  var FALLBACK_REGIONS = [
+    { id: "alger", name: "الجزائر العاصمة", shippingCost: 0 },
+    { id: "oran", name: "وهران", shippingCost: 0 },
+    { id: "constantine", name: "قسنطينة", shippingCost: 0 },
+    { id: "annaba", name: "عنابة", shippingCost: 0 },
+    { id: "setif", name: "سطيف", shippingCost: 0 },
+    { id: "bejaia", name: "بجاية", shippingCost: 0 },
+    { id: "tlemcen", name: "تلمسان", shippingCost: 0 },
+    { id: "batna", name: "باتنة", shippingCost: 0 },
+    { id: "blida", name: "البليدة", shippingCost: 0 },
+    { id: "tizi_ouzou", name: "تيزي وزو", shippingCost: 0 },
+    { id: "biskra", name: "بسكرة", shippingCost: 0 },
+    { id: "mostaganem", name: "مستغانم", shippingCost: 0 },
+    { id: "skikda", name: "سكيكدة", shippingCost: 0 },
+    { id: "tiaret", name: "تيارت", shippingCost: 0 },
+    { id: "medea", name: "المدية", shippingCost: 0 },
+    { id: "msila", name: "المسيلة", shippingCost: 0 },
+    { id: "guelma", name: "قالمة", shippingCost: 0 },
+    { id: "jijel", name: "جيجل", shippingCost: 0 },
+    { id: "chlef", name: "الشلف", shippingCost: 0 },
+    { id: "ouargla", name: "ورقلة", shippingCost: 0 },
+    { id: "bou_arreridj", name: "برج بوعريريج", shippingCost: 0 },
+    { id: "souk_ahras", name: "سوق أهراس", shippingCost: 0 },
+    { id: "boumerdes", name: "بومرداس", shippingCost: 0 },
+    { id: "tipaza", name: "تيبازة", shippingCost: 0 },
+    { id: "ain_defla", name: "عين الدفلى", shippingCost: 0 },
+    { id: "relizane", name: "غليزان", shippingCost: 0 },
+    { id: "mascara", name: "معسكر", shippingCost: 0 },
+    { id: "djelfa", name: "الجلفة", shippingCost: 0 },
+    { id: "laghouat", name: "الأغواط", shippingCost: 0 },
+    { id: "ghardaia", name: "غرداية", shippingCost: 0 },
+  ];
+
   var state = {
-    products: {},      // id -> product
-    regions: {},        // id -> region {name, shippingCost}
-    cart: loadCart(),  // [{productId, quantity}]
+    products: {},
+    regions: {},
+    cart: loadCart(),
     activeProductId: null,
   };
 
-  // -------------------------------------------------------------------
-  // Utilities
-  // -------------------------------------------------------------------
   function $(selector, root) { return (root || document).querySelector(selector); }
   function $all(selector, root) { return Array.prototype.slice.call((root || document).querySelectorAll(selector)); }
 
@@ -44,82 +117,17 @@
     try { localStorage.setItem(CART_KEY, JSON.stringify(state.cart)); } catch (e) {}
   }
 
-  function apiUrl(path) {
-    return API_BASE + path;
+  function apiUrl(path) { return API_BASE + path; }
+
+  function track(eventName, browserProps, capiPayload) {
+    if (TRACK.track) return TRACK.track(eventName, browserProps, capiPayload);
+    return TRACK.newEventId ? TRACK.newEventId() : newEventId();
   }
 
-  // -------------------------------------------------------------------
-  // TikTok Pixel + server-side CAPI relay
-  // -------------------------------------------------------------------
-  function initPixel() {
-    if (!PIXEL_ID) return;
-    (function (w, d, t) {
-      w.TiktokAnalyticsObject = t;
-      var ttq = (w[t] = w[t] || []);
-      ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"];
-      ttq.setAndDefer = function (t, e) {
-        t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))); };
-      };
-      for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
-      ttq.instance = function (t) {
-        var e = ttq._i[t] || [];
-        for (var n = 0; n < e.methods.length; n++) ttq.setAndDefer(e, e.methods[n]);
-        return e;
-      };
-      ttq.load = function (e, n) {
-        var r = "https://analytics.tiktok.com/i18n/pixel/events.js";
-        ttq._i = ttq._i || {};
-        ttq._i[e] = [];
-        ttq._i[e]._u = r;
-        ttq._t = ttq._t || {};
-        ttq._t[e] = +new Date();
-        ttq._o = ttq._o || {};
-        ttq._o[e] = n || {};
-        var scriptEl = document.createElement("script");
-        scriptEl.type = "text/javascript";
-        scriptEl.async = true;
-        scriptEl.src = r + "?sdkid=" + e + "&lib=" + t;
-        var firstScript = document.getElementsByTagName("script")[0];
-        firstScript.parentNode.insertBefore(scriptEl, firstScript);
-      };
-      ttq.load(PIXEL_ID);
-      ttq.page();
-    })(window, document, "ttq");
+  function trackBrowserOnly(eventName, browserProps, eventId) {
+    if (TRACK.trackBrowserOnly) TRACK.trackBrowserOnly(eventName, browserProps, eventId);
   }
 
-  function pixelTrack(eventName, properties, eventId) {
-    if (!PIXEL_ID || !window.ttq) return;
-    try {
-      window.ttq.track(eventName, properties || {}, { event_id: eventId });
-    } catch (e) { /* pixel not ready yet — non-fatal */ }
-  }
-
-  function serverTrack(eventName, eventId, orderId, payload) {
-    if (!API_BASE) return;
-    fetch(apiUrl("/api/e"), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        eventName: eventName,
-        eventId: eventId,
-        orderId: orderId || null,
-        payload: payload || {},
-      }),
-    }).catch(function () { /* best-effort, never block the UI on this */ });
-  }
-
-  // Fires both the browser pixel and the server-side CAPI relay with the
-  // SAME event_id so TikTok de-duplicates them into a single event.
-  function track(eventName, tiktokProperties, capiPayload) {
-    var eventId = newEventId();
-    pixelTrack(eventName, tiktokProperties, eventId);
-    serverTrack(eventName, eventId, null, capiPayload);
-    return eventId;
-  }
-
-  // -------------------------------------------------------------------
-  // Products
-  // -------------------------------------------------------------------
   function fmtPrice(price) { return price.toLocaleString("ar-DZ") + " دج"; }
 
   function productMeta(productId) {
@@ -127,15 +135,17 @@
     return {
       emoji: meta.emoji || "✨",
       category: meta.category || "تجميل",
-      gradient: meta.gradient || "linear-gradient(135deg, #e8f5d0, #84D318)",
+      gradient: meta.gradient || "linear-gradient(135deg, #fce4ec, #e8a0ac)",
+      image: meta.image || "",
     };
   }
 
   function renderProductThumb(p) {
-    if (p.image) {
-      return '<img src="' + escapeAttr(p.image) + '" alt="' + escapeAttr(p.name) + '" loading="lazy" />';
-    }
     var meta = productMeta(p.id);
+    var img = meta.image || p.image;
+    if (img) {
+      return '<img src="' + escapeAttr(img) + '" alt="' + escapeAttr(p.name) + '" loading="lazy" />';
+    }
     return (
       '<div class="product-thumb-placeholder" style="background:' + meta.gradient + '">' +
         '<span aria-hidden="true">' + meta.emoji + '</span>' +
@@ -157,7 +167,9 @@
         renderProductGrid(products);
       })
       .catch(function () {
-        $("#productGrid").innerHTML = '<p class="loading">تعذر تحميل المنتجات حالياً، حاول تحديث الصفحة.</p>';
+        state.products = {};
+        FALLBACK_PRODUCTS.forEach(function (p) { state.products[p.id] = p; });
+        renderProductGrid(FALLBACK_PRODUCTS);
       });
   }
 
@@ -168,9 +180,10 @@
       return;
     }
     grid.innerHTML = products.map(function (p) {
+      var meta = productMeta(p.id);
       return (
         '<article class="product-card" data-product-id="' + escapeAttr(p.id) + '" data-action="open-product">' +
-          '<div class="product-thumb">' +
+          '<div class="product-thumb" style="background:' + meta.gradient + '">' +
             renderProductCategory(p) +
             renderProductThumb(p) +
           '</div>' +
@@ -194,9 +207,6 @@
   }
   function escapeAttr(str) { return escapeHtml(str); }
 
-  // -------------------------------------------------------------------
-  // Shipping regions (wilayas)
-  // -------------------------------------------------------------------
   function loadRegions() {
     fetch(apiUrl("/api/regions"))
       .then(function (res) { if (!res.ok) throw new Error("bad status"); return res.json(); })
@@ -211,11 +221,25 @@
         regions.forEach(function (r) {
           var opt = document.createElement("option");
           opt.value = r.id;
-          opt.textContent = r.name + " (" + fmtPrice(r.shippingCost) + " توصيل)";
+          opt.textContent = r.name;
           select.appendChild(opt);
         });
       })
-      .catch(function () { /* checkout will show a clear error if regions failed to load */ });
+      .catch(function () {
+        state.regions = {};
+        FALLBACK_REGIONS.forEach(function (r) { state.regions[r.id] = r; });
+        var select = $("#regionSelect");
+        if (!select) return;
+        var placeholder = select.querySelector('option[value=""]');
+        select.innerHTML = "";
+        if (placeholder) select.appendChild(placeholder);
+        FALLBACK_REGIONS.forEach(function (r) {
+          var opt = document.createElement("option");
+          opt.value = r.id;
+          opt.textContent = r.name;
+          select.appendChild(opt);
+        });
+      });
   }
 
   function selectedRegion() {
@@ -226,24 +250,21 @@
   function updateCheckoutSummary() {
     var subtotal = cartTotal();
     var region = selectedRegion();
-    var shipping = region ? region.shippingCost : 0;
     $("#summarySubtotal").textContent = fmtPrice(subtotal);
-    $("#summaryShipping").textContent = region ? fmtPrice(shipping) : "—";
-    $("#summaryTotal").textContent = fmtPrice(subtotal + shipping);
+    $("#summaryShipping").textContent = region ? "مجاني" : "—";
+    $("#summaryTotal").textContent = fmtPrice(subtotal);
   }
 
-  // -------------------------------------------------------------------
-  // Product modal
-  // -------------------------------------------------------------------
   function openProduct(productId) {
     var p = state.products[productId];
     if (!p) return;
     state.activeProductId = productId;
 
+    var meta = productMeta(p.id);
     var thumb = renderProductThumb(p);
 
     $("#productModalBody").innerHTML = (
-      '<div class="product-modal-thumb">' + thumb + "</div>" +
+      '<div class="product-modal-thumb" style="background:' + meta.gradient + '">' + thumb + "</div>" +
       '<p class="muted" style="margin:0 0 8px;font-weight:800">' + escapeHtml(productMeta(p.id).category) + '</p>' +
       "<h2>" + escapeHtml(p.name) + "</h2>" +
       '<p class="muted">' + escapeHtml(p.description || "") + "</p>" +
@@ -253,7 +274,7 @@
         '<span id="modalQty">1</span>' +
         '<button type="button" data-action="qty-inc">+</button>' +
       "</div>" +
-      '<button class="btn btn-primary btn-block" data-action="add-to-cart">أضف إلى السلة</button>'
+      '<button class="btn btn-primary btn-block" data-action="add-to-cart">أضيفيه للسلة</button>'
     );
 
     $("#productOverlay").hidden = false;
@@ -310,9 +331,6 @@
     openCart();
   }
 
-  // -------------------------------------------------------------------
-  // Cart
-  // -------------------------------------------------------------------
   function cartTotal() {
     return state.cart.reduce(function (sum, item) {
       var p = state.products[item.productId];
@@ -331,7 +349,7 @@
   function renderCart() {
     var container = $("#cartItems");
     if (!state.cart.length) {
-      container.innerHTML = '<p class="cart-empty">سلتك فارغة</p>';
+      container.innerHTML = '<p class="cart-empty">السلة فارغة</p>';
       $("#checkoutBtn").disabled = true;
     } else {
       container.innerHTML = state.cart.map(function (item) {
@@ -343,7 +361,7 @@
               '<div class="cart-item-name">' + escapeHtml(p.name) + "</div>" +
               '<div class="cart-item-meta">' + item.quantity + " × " + fmtPrice(p.price) + "</div>" +
             "</div>" +
-            '<button class="cart-item-remove" data-action="remove-item" data-product-id="' + escapeAttr(item.productId) + '">إزالة</button>' +
+            '<button class="cart-item-remove" data-action="remove-item" data-product-id="' + escapeAttr(item.productId) + '">حذف</button>' +
           "</div>"
         );
       }).join("");
@@ -366,9 +384,6 @@
 
   function closeCart() { $("#cartOverlay").hidden = true; }
 
-  // -------------------------------------------------------------------
-  // Checkout
-  // -------------------------------------------------------------------
   function openCheckout() {
     if (!state.cart.length) return;
     closeCart();
@@ -423,44 +438,56 @@
       body: JSON.stringify(payload),
     })
       .then(function (res) {
-        if (!res.ok) return res.json().then(function (e) { throw new Error(e.detail || "تعذر إرسال الطلب"); });
+        if (!res.ok) return res.json().then(function (e) { throw new Error(e.detail || "ما تقدرناش نرسل الطلب"); });
         return res.json();
       })
       .then(function (prepared) {
         var completeEventId = newEventId();
+        var meta = (TRACK.metaCookies && TRACK.metaCookies()) || { fbp: "", fbc: "" };
         return fetch(apiUrl("/api/orders/complete"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ orderId: prepared.orderId, eventId: completeEventId }),
+          body: JSON.stringify({
+            orderId: prepared.orderId,
+            eventId: completeEventId,
+            fbp: meta.fbp,
+            fbc: meta.fbc,
+            eventSourceUrl: window.location.href,
+          }),
         })
           .then(function (res) {
-            if (!res.ok) throw new Error("تعذر تأكيد الطلب");
+            if (!res.ok) throw new Error("ما تقدرناش نأكد الطلب");
             return res.json();
           })
           .then(function () {
-            var contentIds = state.cart.map(function (i) { return i.productId; });
-            pixelTrack("CompletePayment", {
-              currency: "DZD",
-              value: prepared.total,
-              content_ids: contentIds,
-            }, completeEventId);
-            // Server already dispatches the CompletePayment CAPI event as
-            // part of /api/orders/complete, so we don't call /api/e here —
-            // this avoids double logging while keeping pixel + CAPI in sync
-            // via the shared completeEventId.
+            // Purchase fires on thank-you page (avoids lost events on redirect)
             return prepared;
           });
       })
       .then(function (prepared) {
+        var items = state.cart.map(function (i) {
+          var p = state.products[i.productId];
+          return {
+            id: i.productId,
+            productId: i.productId,
+            name: p ? p.name : i.productId,
+            quantity: i.quantity,
+            price: p ? p.price : 0,
+          };
+        });
         form.reset();
         state.cart = [];
         saveCart();
         updateCartCount();
         closeCheckout();
-        showThankYou(prepared.orderId);
+        goToThankYou(prepared, {
+          name: payload.name,
+          regionName: prepared.regionName,
+          items: items,
+        });
       })
       .catch(function (err) {
-        errorEl.textContent = err.message || "حدث خطأ، حاول مرة أخرى.";
+        errorEl.textContent = err.message || "راكم فيه مشكلة، جرب مرة أخرى.";
         errorEl.hidden = false;
       })
       .finally(function () {
@@ -469,16 +496,21 @@
       });
   }
 
-  function showThankYou(orderId) {
-    $("#thankYouOrderId").textContent = orderId;
-    $("#thankYouOverlay").hidden = false;
+  function goToThankYou(prepared, details) {
+    try {
+      sessionStorage.setItem("hadeelbeauty:lastOrder", JSON.stringify({
+        orderId: prepared.orderId,
+        total: prepared.total,
+        subtotal: prepared.subtotal,
+        shipping: prepared.shipping || 0,
+        regionName: prepared.regionName || details.regionName || "",
+        name: details.name || "",
+        items: details.items || [],
+      }));
+    } catch (e) {}
+    window.location.href = "thank-you.html?order=" + encodeURIComponent(prepared.orderId);
   }
 
-  function closeThankYou() { $("#thankYouOverlay").hidden = true; }
-
-  // -------------------------------------------------------------------
-  // Event wiring
-  // -------------------------------------------------------------------
   document.addEventListener("click", function (evt) {
     var target = evt.target.closest("[data-action]");
     if (!target) return;
@@ -486,7 +518,7 @@
 
     switch (action) {
       case "open-product":
-        openProduct(target.getAttribute("data-product-id"));
+        window.location.href = "product.html?id=" + encodeURIComponent(target.getAttribute("data-product-id"));
         break;
       case "close-product":
         closeProduct();
@@ -519,15 +551,11 @@
       case "close-checkout":
         closeCheckout();
         break;
-      case "close-thankyou":
-        closeThankYou();
-        break;
       case "go-shop":
         evt.preventDefault();
         closeCart();
         closeProduct();
         closeCheckout();
-        closeThankYou();
         window.scrollTo({ top: 0, behavior: "smooth" });
         break;
     }
@@ -544,13 +572,14 @@
     }
   });
 
-  // -------------------------------------------------------------------
-  // Init
-  // -------------------------------------------------------------------
-  initPixel();
   loadProducts();
   loadRegions();
   updateCartCount();
+
+  if (sessionStorage.getItem("hadeelbeauty:openCart")) {
+    sessionStorage.removeItem("hadeelbeauty:openCart");
+    setTimeout(openCart, 300);
+  }
 
   if (!API_BASE) {
     console.warn("HADEELBEAUTY_CONFIG.API_BASE is empty — set it in config.js once the backend is deployed.");

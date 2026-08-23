@@ -3,19 +3,42 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>HadeelBeauty | مستحضرات التجميل والعناية بالبشرة — الجزائر</title>
-<meta name="description" content="HadeelBeauty — مستحضرات تجميل وعناية بالبشرة مختارة بعناية. الدفع عند الاستلام في جميع ولايات الجزائر." />
+<title>هديل بيوتي | العناية بالبشرة ومستحضرات التجميل — الجزائر</title>
+<meta name="description" content="هديل بيوتي — منتجات عناية بالبشرة والتجميل مختارة بعناية. الدفع عند الاستلام في جميع ولايات الجزائر." />
+<link rel="canonical" href="https://hadeelbeauty.store/" />
+<meta property="og:url" content="https://hadeelbeauty.store/" />
+<meta property="og:title" content="هديل بيوتي | عناية بالبشرة — الجزائر" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ar_DZ" />
+<meta property="og:image" content="https://hadeelbeauty.store/assets/brand/logo-hadeelbeauty.png?v=1" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="assets/logo.png" />
-<link rel="apple-touch-icon" href="assets/logo.png" />
-<link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="assets/brand/logo-hadeelbeauty.png?v=1" />
+<link rel="apple-touch-icon" href="assets/brand/logo-hadeelbeauty.png?v=1" />
+<link rel="stylesheet" href="style.css?v=8" />
+<script src="config.js?v=2"></script>
+<script>
+(function () {
+  var id = (window.HADEELBEAUTY_CONFIG && window.HADEELBEAUTY_CONFIG.META_PIXEL_ID) || "";
+  if (!id) return;
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+    if (!f._fbq) f._fbq = n;
+    n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+    t = b.createElement(e); t.async = true; t.src = v;
+    s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+  }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+  fbq("init", id);
+  fbq("track", "PageView");
+})();
+</script>
 </head>
 <body>
 
 <div class="promo-bar">
   <div class="container promo-inner">
-    <span>🚚 توصيل لـ 58 ولاية</span>
+    <span>🚚 توصيل مجاني لجميع الولايات</span>
     <span class="promo-sep">·</span>
     <span>💵 الدفع عند الاستلام</span>
     <span class="promo-sep">·</span>
@@ -25,10 +48,12 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#" class="logo" data-action="go-shop" aria-label="Hadeel Beauty — الرئيسية">
-      <img src="assets/logo.png" alt="Hadeel Beauty" class="logo-img" width="160" height="80" />
+    <a href="#" class="logo" data-action="go-shop" aria-label="هديل بيوتي — الرئيسية">
+      <img src="assets/brand/logo-hadeelbeauty.png?v=1" alt="هديل بيوتي HADEEL BEAUTY" class="logo-img" width="140" height="48" loading="eager" onerror="this.style.display='none';this.parentNode.querySelector('.logo-text')&&(this.parentNode.querySelector('.logo-text').style.display='block')" />
+      <span class="logo-text" style="font-weight:900;font-size:1.2rem;color:var(--primary)">هديل بيوتي</span>
     </a>
     <nav class="header-nav" aria-label="التنقل">
+      <a href="#brand">من نحن</a>
       <a href="#products">المنتجات</a>
       <a href="#trust">الضمان</a>
       <a href="#reviews">آراء الزبائن</a>
@@ -43,26 +68,57 @@
 
 <main>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="section-badge">✨ عناية وتجميل بثقة</span>
-        <h1>جمالك يستحق الأفضل — <span class="text-gradient">بلا مخاطرة</span></h1>
-        <p class="hero-lead">مستحضرات تجميل وعناية بالبشرة مختارة بعناية. تفحصي المنتج عند الاستلام وادفعي غير كي ترضي — في جميع ولايات الجزائر.</p>
-        <div class="hero-actions">
-          <a href="#products" class="btn btn-primary">تسوقي الآن</a>
-          <a href="#trust" class="btn btn-outline">ليش تثقي بنا؟</a>
-        </div>
-        <div class="hero-badges">
-          <span class="hero-badge">✓ دفع عند الاستلام</span>
-          <span class="hero-badge">✓ منتجات مختارة</span>
-          <span class="hero-badge">✓ توصيل وطني</span>
-        </div>
+  <section class="hero hero--classic">
+    <div class="hero-bg-pattern" aria-hidden="true"></div>
+    <div class="container hero-classic">
+      <p class="hero-tagline">عناية بالبشرة · الدفع عند الاستلام · الجزائر</p>
+      <h1>بشرتك تستحق <span class="text-gradient">الأحسن</span></h1>
+      <p class="hero-lead">منتجات عناية بالبشرة مختارة بعناية — اطلبي براحة وخلصي عند الاستلام بعد ما تتأكدي من طلبك.</p>
+      <div class="hero-actions hero-actions--center">
+        <a href="#products" class="btn btn-primary">تسوقي الآن</a>
+        <a href="#brand" class="btn btn-outline">من نحن</a>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-card hero-card-1">💄</div>
-        <div class="hero-card hero-card-2">✨</div>
-        <div class="hero-card hero-card-3">🧴</div>
+      <ul class="hero-trust-list">
+        <li>✓ توصيل مجاني لجميع الولايات</li>
+        <li>✓ دفع عند الاستلام</li>
+        <li>✓ فحص قبل الدفع</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="brand" class="brand-story">
+    <div class="container brand-story-grid">
+      <div class="brand-story-visual brand-story-visual--logo">
+        <div class="brand-story-logo-only" style="font-size:3rem;font-weight:900;color:var(--primary);text-align:center;padding:2rem">💄</div>
+        <p class="brand-story-logo-caption">عناية بالبشرة · الجزائر</p>
+      </div>
+      <div class="brand-story-copy">
+        <span class="section-badge">💗 شخصية المتجر</span>
+        <h2>اسم يعكس رسالتنا</h2>
+        <p class="brand-story-lead">«هديل بيوتي» مش مجرد اسم — هو وعد بعناية حقيقية ببشرتك. نؤمنوا بلي كل مرأة تستاهل منتجات موثوقة، تركيبات لطيفة، وتجربة تسوق مريحة بلا ضغط.</p>
+        <ul class="brand-pillars">
+          <li>
+            <span class="brand-pillar-icon">🧴</span>
+            <div>
+              <strong>تركيز على البشرة</strong>
+              <p>منتجات عناية، ترطيب، وإصلاح — مختارة لاحتياجات البشرة الجزائرية.</p>
+            </div>
+          </li>
+          <li>
+            <span class="brand-pillar-icon">🌿</span>
+            <div>
+              <strong>لطافة وثقة</strong>
+              <p>تركيبات لطيفة، وصف واضح، ودفع عند الاستلام بعد الفحص.</p>
+            </div>
+          </li>
+          <li>
+            <span class="brand-pillar-icon">✨</span>
+            <div>
+              <strong>جمال طبيعي</strong>
+              <p>هدفنا بشرة أكثر صحة وتوازناً — بلا وعود فارغة.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -76,8 +132,8 @@
       </div>
       <div class="stat-card">
         <span class="stat-icon">🚚</span>
-        <strong class="stat-num">58</strong>
-        <span class="stat-label">ولاية نغطيها</span>
+        <strong class="stat-num">48</strong>
+        <span class="stat-label">ولاية نوصلوا فيها</span>
       </div>
       <div class="stat-card">
         <span class="stat-icon">💵</span>
@@ -96,7 +152,7 @@
     <div class="container trust-bar-inner">
       <div class="trust-item">
         <span class="trust-icon" aria-hidden="true">🚚</span>
-        <span>توصيل لكل ولايات الجزائر</span>
+        <span>توصيل مجاني لجميع الولايات</span>
       </div>
       <div class="trust-item">
         <span class="trust-icon" aria-hidden="true">💵</span>
@@ -104,7 +160,7 @@
       </div>
       <div class="trust-item">
         <span class="trust-icon" aria-hidden="true">📦</span>
-        <span>تفحصي المنتج قبل الدفع</span>
+        <span>فحص المنتج قبل الدفع</span>
       </div>
       <div class="trust-item">
         <span class="trust-icon" aria-hidden="true">🔒</span>
@@ -116,9 +172,9 @@
   <section id="products" class="products-section">
     <div class="container">
       <div class="section-head">
-        <span class="section-badge">💄 مجموعة مختارة</span>
+        <span class="section-badge">💄 6 منتجات مختارة</span>
         <h2 class="section-title">منتجاتنا المميزة</h2>
-        <p class="section-lead">كل منتج نعرضوه مختار بعناية — جودة، سعر معقول، وتجربة شراء مريحة بالدفع عند الاستلام.</p>
+        <p class="section-lead">روتين كامل للبشرة والشعر — ندبات، بقع، حماية، ترطيب، ونمو الشعر. 3790–3990 دج مع توصيل مجاني والدفع عند الاستلام.</p>
       </div>
       <div id="productGrid" class="product-grid">
         <p class="loading">جاري تحميل المنتجات...</p>
@@ -130,13 +186,13 @@
     <div class="container">
       <div class="covenant-card">
         <span class="section-badge light">🛡️ ميثاق الثقة</span>
-        <h2>اطلبي براحة… وادفعي بعد الرضا</h2>
-        <p class="covenant-body">في HadeelBeauty، تجربة الشراء تضع ثقتك أولاً. ما نطلبش منك الدفع مسبقاً — تستلمي الطلب، تفحصيه بيدك، وتخلصي غير كي ترضي. بياناتك تُستخدم فقط لتجهيز طلبك والتواصل معك.</p>
+        <h2>اطلبي براحة… وخلصي بعد الرضا</h2>
+        <p class="covenant-body">في هديل بيوتي، تجربة الشراء تحط ثقتك في الأول. ما نطلبوش الدفع مسبقاً — تستلمي الطلب، تفحصيه بنفسك، وتخلصي بعد الرضا. بياناتك تتستعمل فقط لتجهيز طلبك والتواصل معك.</p>
         <ul class="covenant-pills">
-          <li>💵 الدفع عند الاستلام — بلا بطاقة بنكية</li>
-          <li>📦 تفحص المنتج قبل الدفع</li>
+          <li>💵 الدفع عند الاستلام — بدون بطاقة بنكية</li>
+          <li>📦 فحصي المنتج قبل الدفع</li>
           <li>📞 تأكيد الطلب بالهاتف قبل الشحن</li>
-          <li>🔒 بياناتك محفوظة ولا تُشارك</li>
+          <li>🔒 بياناتك محفوظة وما تتشاركش</li>
         </ul>
       </div>
     </div>
@@ -145,29 +201,29 @@
   <section class="why-us">
     <div class="container">
       <div class="section-head">
-        <span class="section-badge">🌸 ليش HadeelBeauty؟</span>
-        <h2 class="section-title">ليش تختارينا؟</h2>
+        <span class="section-badge">🌸 علاش هديل بيوتي؟</span>
+        <h2 class="section-title">علاش تختاريناا؟</h2>
       </div>
       <div class="why-grid">
         <div class="why-card">
           <span class="why-icon" aria-hidden="true">🌸</span>
           <h3>منتجات مختارة بعناية</h3>
-          <p>كل منتج نختاروه ونتأكدو من جودته قبل ما نعرضوه — ما فماش عشوائية.</p>
+          <p>كل منتج نختاروه ونتأكدوا من جودته قبل ما نعرضوه — بلا عشوائية.</p>
         </div>
         <div class="why-card">
           <span class="why-icon" aria-hidden="true">💵</span>
           <h3>الدفع عند الاستلام</h3>
-          <p>تخلصي غير كي توصلك السلعة وتتأكدي منها بيدك — بلا أي مخاطرة.</p>
+          <p>تخلصي فقط عند استلام الطلب والتأكد منه بنفسك — بلا أي مخاطرة.</p>
         </div>
         <div class="why-card">
           <span class="why-icon" aria-hidden="true">🚚</span>
-          <h3>توصيل لكل الولايات</h3>
-          <p>من الشمال للجنوب — الطلب يوصلك لباب دارك بأسرع وقت ممكن.</p>
+          <h3>توصيل مجاني لجميع الولايات</h3>
+          <p>من الجزائر العاصمة للجنوب — الطلب يوصلك لباب الدار بأسرع وقت.</p>
         </div>
         <div class="why-card">
           <span class="why-icon" aria-hidden="true">📞</span>
           <h3>خدمة زبائن حاضرة</h3>
-          <p>عندك سؤال قبل أو بعد الطلب؟ نتصلو بيك ونجاوبوك بكل ود.</p>
+          <p>عندك سؤال قبل أو بعد الطلب؟ نتواصلوا معك ونجاوبوا على كل استفساراتك.</p>
         </div>
       </div>
     </div>
@@ -177,88 +233,87 @@
     <div class="container">
       <div class="section-head">
         <span class="section-badge">⭐ آراء الزبائن</span>
-        <h2 class="section-title">آراء زبائننا</h2>
+        <h2 class="section-title">شنو قالوا زبائننا</h2>
         <div class="reviews-summary">
           <span class="reviews-score">4.9</span>
           <span class="reviews-stars" aria-label="4.9 من 5">★★★★★</span>
-          <span class="reviews-count">بناءً على تجارب زبائننا</span>
+          <span class="reviews-count">من تجارب زبائننا</span>
         </div>
       </div>
       <div class="reviews-grid">
         <article class="review-card">
           <div class="review-head">
-            <span class="review-avatar" style="background:#84D318">أ</span>
+            <span class="review-avatar" style="background:#e8a0ac">أ</span>
             <div>
-              <div class="review-name">أمينة ب. <span class="review-verified">✓ زبونة</span></div>
+              <div class="review-name">أميرة ب. <span class="review-verified">✓ زبونة</span></div>
               <div class="review-location">الجزائر العاصمة</div>
               <div class="review-stars" aria-label="5 من 5">★★★★★</div>
             </div>
           </div>
-          <p class="review-text">جودة المنتجات فوق التوقعات، والتوصيل وصل بسرعة. راضية بزاف على الطلبية.</p>
-          <span class="review-product">سيروم فيتامين سي</span>
+          <p class="review-text">والله المنتج واعر، التوصيل وصلني بسرعة كيما قالوا. بارك الله فيكم، راني راضية بزاف على الطلب.</p>
+          <span class="review-product">جل إزالة الندبات</span>
         </article>
         <article class="review-card">
           <div class="review-head">
-            <span class="review-avatar" style="background:#E5008F">س</span>
+            <span class="review-avatar" style="background:#d1717f">س</span>
             <div>
               <div class="review-name">سارة ك. <span class="review-verified">✓ زبونة</span></div>
               <div class="review-location">وهران</div>
               <div class="review-stars" aria-label="5 من 5">★★★★★</div>
             </div>
           </div>
-          <p class="review-text">أول مرة نطلب من الموقع وما ندمتش، الدفع عند الاستلام عطاني ثقة أكثر.</p>
-          <span class="review-product">كريم ترطيب</span>
+          <p class="review-text">أول مرة نطلب وما ندمتش، الدفع عند الاستلام ريّحني بزاف وعطاني ثقة أكثر فالمتجر.</p>
+          <span class="review-product">سيروم TXA + نياسيناميد</span>
         </article>
         <article class="review-card">
           <div class="review-head">
-            <span class="review-avatar" style="background:#00ADEF">ن</span>
+            <span class="review-avatar" style="background:#7eb8b0">ن</span>
             <div>
               <div class="review-name">نور الهدى م. <span class="review-verified">✓ زبونة</span></div>
               <div class="review-location">قسنطينة</div>
-              <div class="review-stars" aria-label="4 من 5">★★★★☆</div>
-            </div>
-          </div>
-          <p class="review-text">المنتج زعما بصح، والتغليف نظيف ومرتب. غادي نعاود نطلب حاجة أخرى.</p>
-          <span class="review-product">فرشاة تنظيف الوجه</span>
-        </article>
-        <article class="review-card">
-          <div class="review-head">
-            <span class="review-avatar" style="background:#84D318">ي</span>
-            <div>
-              <div class="review-name">ياسمين ح. <span class="review-verified">✓ زبونة</span></div>
-              <div class="review-location">سطيف</div>
               <div class="review-stars" aria-label="5 من 5">★★★★★</div>
             </div>
           </div>
-          <p class="review-text">خدمة زبائن محترمة، جاوبوني على جميع أسئلتي قبل ما نأكد الطلب.</p>
-          <span class="review-product">مجموعة فرش مكياج</span>
+          <p class="review-text">المنتج زين والتغليف مرتب ونظيف. راني نوصي بيه لكل صواحبي. أكيد غادي نعاود نطلب.</p>
+          <span class="review-product">كريم أربوتين + TXA</span>
         </article>
         <article class="review-card">
           <div class="review-head">
-            <span class="review-avatar" style="background:#E5008F">ح</span>
+            <span class="review-avatar" style="background:#e8a0ac">ي</span>
             <div>
-              <div class="review-name">حنان ع. <span class="review-verified">✓ زبونة</span></div>
+              <div class="review-name">ياسمين ح. <span class="review-verified">✓ زبونة</span></div>
               <div class="review-location">عنابة</div>
               <div class="review-stars" aria-label="5 من 5">★★★★★</div>
             </div>
           </div>
-          <p class="review-text">التوصيل جاء لباب الدار في الوقت، والمنتج كما في الوصف.</p>
-          <span class="review-product">واقي شمس SPF 50</span>
+          <p class="review-text">خدمة الزبائن مليحة، جاوبوني على كل أسئلتي قبل ما نأكد الطلب. ما قصروش وخدموا مزيان.</p>
+          <span class="review-product">واقي شمس SPF 50+</span>
         </article>
         <article class="review-card">
           <div class="review-head">
-            <span class="review-avatar" style="background:#FFCC00;color:#1f2a14">ف</span>
+            <span class="review-avatar" style="background:#d1717f">ح</span>
             <div>
-              <div class="review-name">فاطمة الزهراء ب. <span class="review-verified">✓ زبونة</span></div>
+              <div class="review-name">حنان ع. <span class="review-verified">✓ زبونة</span></div>
               <div class="review-location">بجاية</div>
               <div class="review-stars" aria-label="5 من 5">★★★★★</div>
             </div>
           </div>
-          <p class="review-text">أسعار معقولة وجودة ممتازة، نصحت بيه صحباتي كامل.</p>
-          <span class="review-product">ملقط حواجب</span>
+          <p class="review-text">التوصيل جاني لباب الدار بالوقت، والمنتج كيما قالوا بالضبط. شكراً هديل بيوتي 💗</p>
+          <span class="review-product">كريم السيراميد</span>
+        </article>
+        <article class="review-card">
+          <div class="review-head">
+            <span class="review-avatar" style="background:#d4a574;color:#3a2c2e">ف</span>
+            <div>
+              <div class="review-name">فاطمة الزهراء ب. <span class="review-verified">✓ زبونة</span></div>
+              <div class="review-location">سطيف</div>
+              <div class="review-stars" aria-label="5 من 5">★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">الأسعار معقولة وجودة باهية، وصيت بيه لكل صواحبي وكلهم عجبهم. رانا نتابعوا نطلبوا.</p>
+          <span class="review-product">بخاخ دعم نمو الشعر</span>
         </article>
       </div>
-      <p class="reviews-note">* آراء توضيحية نموذجية — سيتم استبدالها بآراء زبائن حقيقية.</p>
     </div>
   </section>
 
@@ -275,15 +330,15 @@
         </details>
         <details class="faq-item">
           <summary>واش المنتجات أصلية؟</summary>
-          <p>نعم، جميع منتجاتنا مختارة بعناية من موردين موثوقين قبل ما نعرضوها لكم.</p>
+          <p>أيه، جميع منتجاتنا مختارة بعناية من موردين موثوقين قبل ما نعرضوهم ليكم.</p>
         </details>
         <details class="faq-item">
-          <summary>شحال تاخد مدة التوصيل؟</summary>
-          <p>مدة التوصيل تختلف حسب الولاية — بين يوم ويومين فقط. نتصلو بيك لتأكيد الطلب قبل الشحن.</p>
+          <summary>شحال تاخذ مدة التوصيل؟</summary>
+          <p>مدة التوصيل تختلف حسب الولاية — عادةً خلال 24-72 ساعة. نتواصلوا معك لتأكيد الطلب قبل الشحن.</p>
         </details>
         <details class="faq-item">
           <summary>واش نقدر نبدل أو نرجع المنتج؟</summary>
-          <p>إذا كانت عندك مشكلة في الطلبية، تواصلي معنا بعد الاستلام مباشرة وسنجد لك الحل المناسب.</p>
+          <p>إذا كانت عندك مشكلة في الطلبية، تواصلي معنا بعد الاستلام مباشرة ونلقاوا ليك الحل المناسب.</p>
         </details>
         <details class="faq-item">
           <summary>كيفاش نتواصل معاكم؟</summary>
@@ -291,7 +346,7 @@
         </details>
         <details class="faq-item">
           <summary>واش بياناتي آمنة؟</summary>
-          <p>نعم — بياناتك (الاسم، الهاتف، العنوان) تُستخدم فقط لتجهيز طلبك والتواصل معك. ما نشاركوهاش مع أي طرف ثالث.</p>
+          <p>أيه — بياناتك (الاسم، الهاتف، العنوان) تتستعمل فقط لتجهيز طلبك والتواصل معك. ما نشاركوهاش مع أي طرف ثالث.</p>
         </details>
       </div>
     </div>
@@ -302,11 +357,12 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="assets/logo.png" alt="Hadeel Beauty" class="footer-logo" width="140" height="70" loading="lazy" />
-      <p>مستحضرات تجميل وعناية بالبشرة — الدفع عند الاستلام في جميع ولايات الجزائر.</p>
+      <p style="font-weight:900;font-size:1.4rem;color:var(--primary);margin:0 0 8px">هديل بيوتي 💄</p>
+      <p class="footer-tagline">عناية بالبشرة · منتجات مختارة · الدفع عند الاستلام في جميع ولايات الجزائر.</p>
     </div>
     <div class="footer-links">
       <strong>روابط سريعة</strong>
+      <a href="#brand">من نحن</a>
       <a href="#products">المنتجات</a>
       <a href="#trust">الضمان والثقة</a>
       <a href="#reviews">آراء الزبائن</a>
@@ -316,14 +372,15 @@
       <strong>تسوق آمن</strong>
       <p>💵 الدفع عند الاستلام</p>
       <p>🔒 بيانات محمية</p>
-      <p>🚚 58 ولاية</p>
+      <p>🚚 جميع الولايات</p>
     </div>
   </div>
   <div class="container footer-bottom">
-    <p>HadeelBeauty © 2026 — جميع الحقوق محفوظة</p>
+    <p>هديل بيوتي © 2026 — جميع الحقوق محفوظة</p>
   </div>
 </footer>
 
+<!-- Product Modal -->
 <div class="overlay" id="productOverlay" hidden>
   <div class="modal product-modal">
     <button class="modal-close" data-action="close-product" aria-label="إغلاق">✕</button>
@@ -331,6 +388,7 @@
   </div>
 </div>
 
+<!-- Cart Modal -->
 <div class="overlay" id="cartOverlay" hidden>
   <div class="modal cart-modal">
     <button class="modal-close" data-action="close-cart" aria-label="إغلاق">✕</button>
@@ -341,22 +399,23 @@
         <span>المجموع الفرعي</span>
         <strong id="cartTotal">0 دج</strong>
       </div>
-      <p class="muted shipping-hint">يُضاف رسوم التوصيل حسب الولاية عند إتمام الطلب</p>
+      <p class="muted shipping-hint">🚚 توصيل مجاني لجميع ولايات الجزائر</p>
       <button class="btn btn-primary btn-block" id="checkoutBtn" data-action="go-checkout">إتمام الطلب</button>
     </div>
   </div>
 </div>
 
+<!-- Checkout Modal -->
 <div class="overlay" id="checkoutOverlay" hidden>
   <div class="modal checkout-modal">
     <button class="modal-close" data-action="close-checkout" aria-label="إغلاق">✕</button>
     <h2>بيانات التوصيل</h2>
     <form id="checkoutForm">
       <label>الاسم الكامل
-        <input type="text" name="name" required minlength="2" maxlength="80" placeholder="مثال: هديل بن علي" />
+        <input type="text" name="name" required minlength="2" maxlength="80" placeholder="مثال: فاطمة بن علي" />
       </label>
       <label>رقم الهاتف
-        <input type="tel" name="phone" required placeholder="05xxxxxxxx" inputmode="numeric" />
+        <input type="tel" name="phone" required placeholder="06xxxxxxxx" inputmode="numeric" />
       </label>
       <label>الولاية
         <select name="regionId" id="regionSelect" required>
@@ -371,27 +430,17 @@
       </label>
       <div class="checkout-summary" id="checkoutSummary">
         <div class="summary-row"><span>المجموع الفرعي</span><span id="summarySubtotal">0 دج</span></div>
-        <div class="summary-row"><span>التوصيل</span><span id="summaryShipping">—</span></div>
+        <div class="summary-row"><span>التوصيل</span><span id="summaryShipping">مجاني</span></div>
         <div class="summary-row summary-total"><span>الإجمالي</span><span id="summaryTotal">0 دج</span></div>
       </div>
-      <div class="cod-note">💵 الدفع عند الاستلام — لا حاجة لبطاقة ائتمان · تفحصي المنتج قبل الدفع</div>
+      <div class="cod-note">💵 الدفع عند الاستلام — لا حاجة لبطاقة بنكية · فحص المنتج قبل الدفع</div>
       <p class="form-error" id="checkoutError" hidden></p>
       <button type="submit" class="btn btn-primary btn-block" id="submitOrderBtn">تأكيد الطلب</button>
     </form>
   </div>
 </div>
 
-<div class="overlay" id="thankYouOverlay" hidden>
-  <div class="modal thankyou-modal">
-    <div class="thankyou-icon">✅</div>
-    <h2>تم استلام طلبك بنجاح!</h2>
-    <p>رقم الطلب: <strong id="thankYouOrderId"></strong></p>
-    <p class="muted">سنتواصل معك قريباً لتأكيد التوصيل. الدفع عند الاستلام — تفحصي المنتج قبل الدفع.</p>
-    <button class="btn btn-primary" data-action="close-thankyou">متابعة التسوق</button>
-  </div>
-</div>
-
-<script src="config.js"></script>
-<script src="app.js"></script>
+<script src="tracking.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>منتج | هديل بيوتي</title>
+<meta name="description" content="منتجات عناية بالبشرة — هديل بيوتي. الدفع عند الاستلام في جميع ولايات الجزائر." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=8" />
+<link rel="canonical" href="https://hadeelbeauty.store/product.html" />
+<script src="config.js?v=2"></script>
+<script>
+(function () {
+  var id = (window.HADEELBEAUTY_CONFIG && window.HADEELBEAUTY_CONFIG.META_PIXEL_ID) || "";
+  if (!id) return;
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+    if (!f._fbq) f._fbq = n;
+    n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+    t = b.createElement(e); t.async = true; t.src = v;
+    s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+  }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+  fbq("init", id);
+  fbq("track", "PageView");
+})();
+</script>
+</head>
+<body>
+
+<div class="promo-bar">
+  <div class="container promo-inner">
+    <span>🚚 توصيل مجاني لجميع المناطق</span>
+    <span class="promo-sep">·</span>
+    <span>💵 الدفع عند الاستلام</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span style="font-weight:900;font-size:1.2rem;color:var(--primary)">هديل بيوتي 💄</span>
+    </a>
+    <a href="index.html" class="btn btn-outline pd-back">← المتجر</a>
+    <a href="#pdOrder" class="btn btn-primary pd-header-order">اطلب الآن</a>
+  </div>
+</header>
+
+<main class="product-page" id="productPage">
+  <p class="loading container">جاري تحميل المنتج...</p>
+</main>
+
+<div class="pd-sticky-bar" id="stickyBar" hidden>
+  <div class="container pd-sticky-inner">
+    <div class="pd-sticky-info">
+      <strong id="stickyPrice">3990 دج</strong>
+      <span class="muted">الدفع عند الاستلام</span>
+    </div>
+    <button class="btn btn-primary" id="stickyAddBtn">اطلب الآن</button>
+  </div>
+</div>
+
+<script src="tracking.js?v=2"></script>
+<script src="product.js?v=2"></script>
+</body>
+</html>
