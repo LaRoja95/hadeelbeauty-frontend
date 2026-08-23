@@ -1,4 +1,4 @@
-/* Hadeel Beauty (هديل بيوتي) storefront logic — Algérie
+/* HadeelBeauty storefront logic — Algérie
  * No frameworks — vanilla JS. Talks to the FastAPI backend for products
  * and orders, and mirrors key events to Meta pixel when configured.
  */
@@ -15,9 +15,9 @@
     {
       id: "scar-gel-tcm",
       name: "جل مرهم لإزالة آثار الندبات وحب الشباب",
-      description: "تركيبة TCM بسنتيلا آسياتيكا ونياسيناميد — 30 جرام.",
+      description: "تركيبة TCM بسنتيلا آسياتيكا ونياسيناميد — لتلطيف مظهر الندبات وآثار حب الشباب وتوحيد لون البشرة. قوام شفاف سريع الامتصاص — 30 جرام.",
       price: 3990,
-      image: "assets/products/scar-gel/hero-product.png?v=3",
+      image: "assets/products/scar-gel/hero-product.png?v=1",
     },
     {
       id: "niacinamide-txa-serum",

@@ -10,9 +10,9 @@
     "scar-gel-tcm": {
       id: "scar-gel-tcm",
       name: "جل مرهم لإزالة آثار الندبات وحب الشباب",
-      description: "تركيبة TCM بسنتيلا آسياتيكا ونياسيناميد — 30 جرام.",
+      description: "تركيبة TCM بسنتيلا آسياتيكا ونياسيناميد — لتلطيف مظهر الندبات وآثار حب الشباب وتوحيد لون البشرة. قوام شفاف سريع الامتصاص — 30 جرام.",
       price: 3990,
-      image: "assets/products/scar-gel/hero-product.png?v=3",
+      image: "assets/products/scar-gel/hero-product.png?v=1",
     },
     "niacinamide-txa-serum": {
       id: "niacinamide-txa-serum",
@@ -375,7 +375,7 @@
             '</div>' +
           '</div>' +
           '<div class="pd-hero-copy">' +
-            '<span class="section-badge">' + escapeHtml(profile.badge || "✨ هديل بيوتي") + '</span>' +
+            '<span class="section-badge">' + escapeHtml(profile.badge || "✨ HadeelBeauty") + '</span>' +
             '<h1>' + escapeHtml(p.name) + '</h1>' +
             '<p class="pd-lead">' + escapeHtml(p.description) + '</p>' +
             '<div class="pd-price-row">' +
@@ -436,7 +436,7 @@
       '</section>'
     );
 
-    document.title = p.name + " | هديل بيوتي";
+    document.title = p.name + " | HadeelBeauty";
     var stickyPrice = $("#stickyPrice");
     if (stickyPrice) stickyPrice.textContent = fmtPrice(p.price);
     var stickyBar = $("#stickyBar");

@@ -1,4 +1,4 @@
-/* Hadeel Beauty — Meta + TikTok + Snapchat pixel tracking (client-side).
+/* HadeelBeauty — Meta + TikTok + Snapchat pixel tracking (client-side).
  * Configure IDs in config.js. Server-side TikTok CAPI via /api/e and /api/orders/complete.
  */
 (function () {

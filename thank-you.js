@@ -130,7 +130,7 @@
   }
 
   function formatItems(items) {
-    if (!items || !items.length) return "طلبك من هديل بيوتي";
+    if (!items || !items.length) return "طلبك من HadeelBeauty";
     return items.map(function (item) {
       var name = item.name || item.productName || "منتج";
       var qty = item.quantity || 1;
@@ -165,7 +165,7 @@
         '<div class="ty-hero">' +
           '<div class="ty-success-ring" aria-hidden="true"><span>✓</span></div>' +
           "<h1>شكراً ليك، " + escapeHtml(firstName) + "!</h1>" +
-          '<p class="ty-lead">وصلنا طلبك بنجاح — فريق <strong>هديل بيوتي</strong> يتكفل بالباقي.</p>' +
+          '<p class="ty-lead">وصلنا طلبك بنجاح — فريق <strong>HadeelBeauty</strong> يتكفل بالباقي.</p>' +
         "</div>" +
 
         '<div class="ty-grid">' +
@@ -225,7 +225,7 @@
           '<a href="product.html?id=scar-gel-tcm" class="btn btn-outline ty-cta-secondary">طلب منتج آخر</a>' +
         "</div>" +
 
-        '<p class="ty-footer-note">💗 شكراً لثقتك في <strong>هديل بيوتي</strong> — نسعدوا بخدمتك دائماً</p>' +
+        '<p class="ty-footer-note">💗 شكراً لثقتك في <strong>HadeelBeauty</strong> — نسعدوا بخدمتك دائماً</p>' +
       "</div>"
     );
 
