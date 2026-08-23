@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/brand/logo-hadeelbeauty.png?v=1" />
 <link rel="apple-touch-icon" href="assets/brand/logo-hadeelbeauty.png?v=1" />
-<link rel="stylesheet" href="style.css?v=8" />
+<link rel="stylesheet" href="style.css?v=9" />
 <script src="config.js?v=4"></script>
 <script>
 (function () {
@@ -409,40 +409,56 @@
 
 <!-- Checkout Modal -->
 <div class="overlay" id="checkoutOverlay" hidden>
-  <div class="modal checkout-modal">
+  <div class="modal checkout-modal checkout-modal--premium">
     <button class="modal-close" data-action="close-checkout" aria-label="إغلاق">✕</button>
-    <h2>بيانات التوصيل</h2>
-    <form id="checkoutForm">
-      <label>الاسم الكامل
-        <input type="text" name="name" required minlength="2" maxlength="80" placeholder="مثال: فاطمة بن علي" />
+    <div class="checkout-head">
+      <div class="checkout-head-icon" aria-hidden="true">🛍️</div>
+      <div>
+        <h2>اطلبي الآن</h2>
+        <p class="checkout-sub">بيانات التوصيل — الدفع عند الاستلام</p>
+      </div>
+    </div>
+    <ul class="checkout-trust">
+      <li>💵 COD</li>
+      <li>📦 افحصي قبل الدفع</li>
+      <li>🔒 تسوق آمن</li>
+    </ul>
+    <form id="checkoutForm" class="checkout-form">
+      <label class="checkout-field">
+        <span class="checkout-label">الاسم الكامل</span>
+        <input type="text" name="name" required minlength="2" maxlength="80" placeholder="مثال: فاطمة بن علي" autocomplete="name" />
       </label>
-      <label>رقم الهاتف
-        <input type="tel" name="phone" required placeholder="06xxxxxxxx" inputmode="numeric" />
+      <label class="checkout-field">
+        <span class="checkout-label">رقم الهاتف</span>
+        <input type="tel" name="phone" required placeholder="06xxxxxxxx" inputmode="numeric" autocomplete="tel" />
       </label>
-      <label>الولاية
+      <label class="checkout-field">
+        <span class="checkout-label">الولاية</span>
         <select name="regionId" id="regionSelect" required>
-          <option value="" disabled selected>اختر الولاية</option>
+          <option value="" disabled selected>اختري ولايتك</option>
         </select>
       </label>
-      <label>البلدية / المدينة
-        <input type="text" name="city" required minlength="2" maxlength="60" placeholder="مثال: حيدرة" />
+      <label class="checkout-field">
+        <span class="checkout-label">البلدية / المدينة</span>
+        <input type="text" name="city" required minlength="2" maxlength="60" placeholder="مثال: حيدرة" autocomplete="address-level2" />
       </label>
-      <label>العنوان بالتفصيل
-        <textarea name="address" required minlength="5" maxlength="240" placeholder="الحي، الشارع، رقم المنزل..."></textarea>
+      <label class="checkout-field">
+        <span class="checkout-label">العنوان بالتفصيل</span>
+        <textarea name="address" required minlength="5" maxlength="240" rows="3" placeholder="الحي، الشارع، رقم المنزل..."></textarea>
       </label>
       <div class="checkout-summary" id="checkoutSummary">
         <div class="summary-row"><span>المجموع الفرعي</span><span id="summarySubtotal">0 دج</span></div>
-        <div class="summary-row"><span>التوصيل</span><span id="summaryShipping">مجاني</span></div>
+        <div class="summary-row summary-free-ship"><span>التوصيل</span><span id="summaryShipping">مجاني 🚚</span></div>
         <div class="summary-row summary-total"><span>الإجمالي</span><span id="summaryTotal">0 دج</span></div>
       </div>
-      <div class="cod-note">💵 الدفع عند الاستلام — لا حاجة لبطاقة بنكية · فحص المنتج قبل الدفع</div>
+      <div class="cod-note cod-note--premium">💵 الدفع عند الاستلام — لا حاجة لبطاقة بنكية</div>
       <p class="form-error" id="checkoutError" hidden></p>
-      <button type="submit" class="btn btn-primary btn-block" id="submitOrderBtn">تأكيد الطلب</button>
+      <button type="submit" class="btn btn-primary btn-block checkout-submit" id="submitOrderBtn">تأكيد الطلب ✓</button>
     </form>
   </div>
 </div>
 
-<script src="tracking.js?v=3"></script>
-<script src="app.js?v=3"></script>
+<script src="tracking.js?v=4"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>

@@ -384,8 +384,18 @@
             '</div>' +
             '<ul class="pd-pills">' + pills + '</ul>' +
             '<div class="pd-order-box" id="pdOrder">' +
-              '<h2 class="pd-order-title">اطلبي الآن</h2>' +
-              '<p class="pd-order-sub">عبّي بياناتك ونتصلوا بك لتأكيد التوصيل</p>' +
+              '<div class="pd-order-head">' +
+                '<div class="pd-order-head-icon" aria-hidden="true">✨</div>' +
+                '<div>' +
+                  '<h2 class="pd-order-title">اطلبي الآن</h2>' +
+                  '<p class="pd-order-sub">عبّي بياناتك — نتصلوا بك لتأكيد التوصيل</p>' +
+                '</div>' +
+              '</div>' +
+              '<ul class="pd-order-trust">' +
+                '<li>💵 الدفع عند الاستلام</li>' +
+                '<li>📦 افحصي قبل الدفع</li>' +
+                '<li>🚚 توصيل 58 ولاية</li>' +
+              '</ul>' +
               '<form id="pdOrderForm" class="pd-order-form">' +
                 '<label class="pd-field">' +
                   '<span class="pd-field-label">الاسم الكامل</span>' +
