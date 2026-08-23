@@ -4,7 +4,7 @@ window.HADEELBEAUTY_CONFIG = {
   STORE_URL: "https://hadeelbeauty.store",
 
   // Ad pixels — paste IDs from Events Manager before launching ads
-  META_PIXEL_ID: "",
+  META_PIXEL_ID: "1027331430352258",
   TIKTOK_PIXEL_ID: "",
   SNAPCHAT_PIXEL_ID: "",
 
