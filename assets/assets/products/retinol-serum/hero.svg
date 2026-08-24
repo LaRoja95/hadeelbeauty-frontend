@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="3J1HE 1J*JFHD 'DDJDJ">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c77dff"/>
+      <stop offset="100%" stop-color="#7b2d8b"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0aaff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#c77dff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="480" fill="url(#bg)" rx="24"/>
+  <circle cx="200" cy="240" r="120" fill="url(#glow)"/>
+  <circle cx="80" cy="100" r="3" fill="#e0aaff" opacity=".6"/>
+  <circle cx="330" cy="140" r="2" fill="#c77dff" opacity=".5"/>
+  <circle cx="60" cy="350" r="2" fill="#e0aaff" opacity=".4"/>
+  <circle cx="350" cy="300" r="3" fill="#c77dff" opacity=".4"/>
+  <text x="200" y="74" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#e0aaff">RETINOL 0.3%</text>
+  <text x="200" y="94" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#c77dff">NIGHT SERUM · ANTI-AGING</text>
+  <rect x="158" y="118" width="84" height="200" rx="14" fill="#0d0d1a" stroke="#7b2d8b" stroke-width="2"/>
+  <rect x="164" y="130" width="72" height="166" rx="10" fill="url(#liquid)" opacity=".7"/>
+  <rect x="170" y="106" width="60" height="24" rx="7" fill="#0d0d1a" stroke="#7b2d8b" stroke-width="2"/>
+  <text x="200" y="213" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="700" fill="#e0aaff">RETINOL</text>
+  <text x="200" y="227" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#c77dff">0.3% Night</text>
+  <text x="200" y="382" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#e0aaff">3J1HE 1J*JFHD DJDJ</text>
+  <text x="200" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#9d8aa0">E6'/ DD4J.H.) · JO3*./E DJD'K · 30 ED</text>
+</svg>

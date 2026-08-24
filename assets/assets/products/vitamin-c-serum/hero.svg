@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="3J1HE AJ*'EJF 3J 20%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffdf0"/>
+      <stop offset="100%" stop-color="#fff3cc"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe066"/>
+      <stop offset="100%" stop-color="#ffaa00"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="480" fill="url(#bg)" rx="24"/>
+  <circle cx="300" cy="90" r="30" fill="#ffd700" opacity=".35"/>
+  <text x="200" y="80" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#b8860b">VITAMIN C 20%</text>
+  <text x="200" y="100" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#9e4a58">+ FERULIC ACID · VITAMIN E</text>
+  <rect x="154" y="124" width="92" height="210" rx="14" fill="#fff" stroke="#f0d060" stroke-width="2"/>
+  <rect x="162" y="136" width="76" height="28" rx="6" fill="#fff3cc"/>
+  <rect x="160" y="168" width="80" height="142" rx="10" fill="url(#liquid)" opacity=".85"/>
+  <text x="200" y="245" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="700" fill="#fff">VITAMIN C</text>
+  <text x="200" y="258" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#fff3cc">20% Ascorbic Acid</text>
+  <rect x="170" y="112" width="60" height="22" rx="6" fill="#fff" stroke="#f0d060" stroke-width="2"/>
+  <text x="200" y="374" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#9e4a58">3J1HE AJ*'EJF 3J</text>
+  <text x="200" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#8a7679">*A*J- H%41'B 'D(41) · 30 ED</text>
+</svg>

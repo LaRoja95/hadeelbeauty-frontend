@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="???? ?????????">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f7f6"/>
+      <stop offset="100%" stop-color="#e8f0ef"/>
+    </linearGradient>
+    <linearGradient id="jar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#eef5f4"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="480" fill="url(#bg)" rx="24"/>
+  <text x="200" y="82" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="800" fill="#3d7a72">CERAMIDE + HA</text>
+  <text x="200" y="102" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#9e4a58">Barrier Repair Cream</text>
+  <rect x="120" y="190" width="160" height="116" rx="18" fill="url(#jar)" stroke="#c5ddd9" stroke-width="2"/>
+  <rect x="120" y="162" width="160" height="44" rx="14" fill="#fff" stroke="#c5ddd9" stroke-width="2"/>
+  <ellipse cx="200" cy="248" rx="56" ry="20" fill="#7eb8b0" opacity=".22"/>
+  <text x="200" y="254" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#3d7a72">Barrier Repair</text>
+  <text x="200" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#9e4a58">???? ????? ??????</text>
+  <text x="200" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#8a7679">??????? · ?????????? ???? · 50 ????</text>
+</svg>

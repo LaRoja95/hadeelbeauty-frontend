@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="2J* %CDJD 'D,(D DFEH 'D491">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f7ee"/>
+      <stop offset="100%" stop-color="#e2f0de"/>
+    </linearGradient>
+    <linearGradient id="bottle" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2d6a4f"/>
+      <stop offset="100%" stop-color="#40916c"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#74c69d"/>
+      <stop offset="100%" stop-color="#2d6a4f"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="480" fill="url(#bg)" rx="24"/>
+  <ellipse cx="130" cy="200" rx="18" ry="6" fill="#74c69d" opacity=".4"/>
+  <ellipse cx="280" cy="150" rx="14" ry="5" fill="#74c69d" opacity=".3"/>
+  <text x="200" y="78" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#2d6a4f">ROSEMARY + CASTOR OIL</text>
+  <text x="200" y="98" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#9e4a58">Hair Growth · Anti Hair Loss</text>
+  <rect x="166" y="118" width="68" height="200" rx="12" fill="url(#bottle)" stroke="#1b4332" stroke-width="2"/>
+  <rect x="174" y="108" width="52" height="22" rx="6" fill="#1b4332"/>
+  <rect x="184" y="102" width="32" height="14" rx="4" fill="#40916c"/>
+  <rect x="170" y="132" width="60" height="160" rx="8" fill="url(#liquid)" opacity=".5"/>
+  <text x="200" y="210" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="700" fill="#fff">ROSEMARY</text>
+  <text x="200" y="223" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#d8f3dc">HAIR OIL</text>
+  <text x="200" y="382" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#2d6a4f">2J* %CDJD 'D,(D</text>
+  <text x="200" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#52796f">D*7HJD H*C+JA 'D491 · 60 ED</text>
+</svg>

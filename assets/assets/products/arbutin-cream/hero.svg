@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="???? ???? ???????">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf8f5"/>
+      <stop offset="100%" stop-color="#f8ede8"/>
+    </linearGradient>
+    <linearGradient id="jar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#fde8ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="480" fill="url(#bg)" rx="24"/>
+  <text x="200" y="82" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" fill="#9e4a58">?-ARBUTIN 2%</text>
+  <text x="200" y="102" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#d4a574">+ KOJIC ACID · VITAMIN C</text>
+  <ellipse cx="200" cy="200" rx="95" ry="28" fill="#e8d0d8" opacity=".5"/>
+  <rect x="135" y="210" width="130" height="116" rx="16" fill="#f5d0dc" opacity=".7"/>
+  <rect x="135" y="200" width="130" height="26" rx="10" fill="#fff" stroke="#e5c0cc" stroke-width="2"/>
+  <text x="200" y="217" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9" font-weight="700" fill="#9e4a58">BRIGHTENING CREAM</text>
+  <rect x="155" y="230" width="90" height="70" rx="10" fill="#fff" opacity=".6"/>
+  <text x="200" y="270" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" fill="#9e4a58">?-ARBUTIN</text>
+  <text x="200" y="286" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#c08090">2%</text>
+  <text x="200" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#9e4a58">???? ????? ??????</text>
+  <text x="200" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#8a7679">???? ??????? · ?????? ?????? · 50 ????</text>
+</svg>
