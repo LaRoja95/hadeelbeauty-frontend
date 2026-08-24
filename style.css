@@ -1,3 +1,53 @@
+/* ── Announcement Bar ──────────────────────────────────────────────── */
+.announcement-bar {
+  background: linear-gradient(90deg, #9e4a58 0%, #c45c6e 50%, #9e4a58 100%);
+  color: #fff;
+  text-align: center;
+  padding: 9px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+.announcement-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.04) 40px,
+    rgba(255,255,255,0.04) 41px
+  );
+  pointer-events: none;
+}
+
+.announcement-bar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.announcement-sep {
+  color: rgba(255,255,255,0.45);
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  .announcement-sep { display: none; }
+  .announcement-bar-inner { flex-direction: column; gap: 3px; }
+  .announcement-bar { padding: 8px 12px; font-size: 11.5px; }
+}
+
+/* ─────────────────────────────────────────────────────────────────── */
+
 :root {
   --brand-green: #e8a0ac;
   --brand-green-dark: #d1717f;
