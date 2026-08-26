@@ -14,7 +14,7 @@
   var FALLBACK_PRODUCTS = [
     {
       id: "scar-gel-tcm",
-      name: "جل مرهم لإزالة آثار الندبات وحب الشباب",
+      name: "مرهم ازالة الندبات",
       description: "تركيبة TCM بسنتيلا آسياتيكا ونياسيناميد — لتلطيف مظهر الندبات وآثار حب الشباب وتوحيد لون البشرة. قوام شفاف سريع الامتصاص — 30 جرام.",
       price: 3990,
       image: "assets/products/scar-gel/hero-product.png?v=1",
@@ -175,7 +175,11 @@
       .then(function (res) { if (!res.ok) throw new Error("bad status"); return res.json(); })
       .then(function (products) {
         state.products = {};
-        products.forEach(function (p) { state.products[p.id] = p; });
+        products.forEach(function (p) {
+          var fb = FALLBACK_PRODUCTS.filter(function (x) { return x.id === p.id; })[0];
+          if (fb && fb.name) p.name = fb.name;
+          state.products[p.id] = p;
+        });
         renderProductGrid(products);
       })
       .catch(function () {

@@ -9,7 +9,7 @@
   var FALLBACK_PRODUCTS = {
     "scar-gel-tcm": {
       id: "scar-gel-tcm",
-      name: "جل مرهم لإزالة آثار الندبات وحب الشباب",
+      name: "مرهم ازالة الندبات",
       description: "تركيبة TCM بسنتيلا آسياتيكا ونياسيناميد — لتلطيف مظهر الندبات وآثار حب الشباب وتوحيد لون البشرة. قوام شفاف سريع الامتصاص — 30 جرام.",
       price: 3990,
       image: "assets/products/scar-gel/hero-product.png?v=1",
@@ -335,7 +335,7 @@
     var heroGradient = getProductMeta(p.id).gradient;
 
     var highlightsSection = profile.highlights && profile.highlights.length
-      ? ('<section class="pd-highlights"><div class="container"><h2 class="section-title">علاش هذا المنتج؟</h2><div class="pd-highlight-grid">' +
+      ? ('<section class="pd-highlights"><div class="container"><h2 class="section-title">لماذا هذا المنتج؟</h2><div class="pd-highlight-grid">' +
           profile.highlights.map(function (h) {
             return '<div class="pd-highlight"><span>' + h.icon + '</span><strong>' + escapeHtml(h.title) +
               '</strong><p>' + escapeHtml(h.text) + '</p></div>';
@@ -357,7 +357,7 @@
           '<div class="container">' +
             '<div class="section-head">' +
               '<span class="section-badge">📋 تفاصيل المنتج</span>' +
-              '<h2 class="section-title">كل ما تحتاجي تعرفيه</h2>' +
+              '<h2 class="section-title">كل ما تحتاجين معرفته</h2>' +
             '</div>' +
             '<div class="pd-info-grid">' + gallery + '</div>' +
           '</div>' +
@@ -406,7 +406,7 @@
                 '<div class="pd-order-head-icon" aria-hidden="true">✨</div>' +
                 '<div>' +
                   '<h2 class="pd-order-title">اطلبي الآن</h2>' +
-                  '<p class="pd-order-sub">عبّي بياناتك — نتصلوا بك لتأكيد التوصيل</p>' +
+                  '<p class="pd-order-sub">املئي بياناتك وسنتصل بك لتأكيد التوصيل</p>' +
                 '</div>' +
               '</div>' +
               '<ul class="pd-order-trust">' +
@@ -426,7 +426,7 @@
                 '<label class="pd-field">' +
                   '<span class="pd-field-label">الولاية</span>' +
                   '<select name="regionId" id="pdRegionSelect" required>' +
-                    '<option value="" disabled selected>اختري ولايتك</option>' +
+                    '<option value="" disabled selected>اختاري ولايتك</option>' +
                   '</select>' +
                 '</label>' +
                 '<label class="pd-field">' +
@@ -458,7 +458,7 @@
       '<section class="pd-bottom-cta">' +
         '<div class="container pd-bottom-cta-inner">' +
           '<h2>جاهزة للطلب؟</h2>' +
-          '<p>اطلبي الآن وخلصي عند الاستلام بعد ما تتأكدي من المنتج.</p>' +
+          '<p>اطلبي الآن وادفعي عند الاستلام بعد أن تتأكدي من المنتج.</p>' +
           '<button type="button" class="btn btn-light pd-scroll-order">اطلبي الآن</button>' +
         '</div>' +
       '</section>'
@@ -502,7 +502,12 @@
       if (!res.ok) throw new Error("not found");
       return res.json();
     })
-    .then(function (p) { renderProduct(Object.assign({ id: PRODUCT_ID }, p)); })
+    .then(function (p) {
+      var merged = Object.assign({ id: PRODUCT_ID }, p);
+      var fallback = FALLBACK_PRODUCTS[PRODUCT_ID];
+      if (fallback && fallback.name) merged.name = fallback.name;
+      renderProduct(merged);
+    })
     .catch(function () {
       renderProduct(FALLBACK_PRODUCTS[PRODUCT_ID] || FALLBACK_PRODUCTS["scar-gel-tcm"]);
     });
