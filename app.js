@@ -62,6 +62,41 @@
       image: "assets/products/arencia-vitamin-c-booster/hero-product.png?v=1",
     },
     {
+      id: "medicube-txa-niacinamide",
+      name: "كريم كبسولات TXA + نياسيناميد",
+      description: "TXA + نياسيناميد 5% — كريم كبسولات يلطّف مظهر البقع الداكنة وتفاوت اللون. 55 جم.",
+      price: 3900,
+      image: "assets/products/medicube-txa-niacinamide/hero-product.png?v=1",
+    },
+    {
+      id: "medicube-vita-c",
+      name: "كريم كبسولات فيتامين سي",
+      description: "ماء فيتامين 50% + مشتقات فيتامين سي ونياسيناميد 5% — لإشراق البشرة. 55 جم.",
+      price: 3900,
+      image: "assets/products/medicube-vita-c/hero-product.png?v=1",
+    },
+    {
+      id: "medicube-hyaluronic",
+      name: "كريم كبسولات الهيالورونيك للترطيب",
+      description: "هيالورونات الصوديوم + بانتينول — ترطيب لطيف. 55 جم.",
+      price: 3900,
+      image: "assets/products/medicube-hyaluronic/hero-product.png?v=1",
+    },
+    {
+      id: "medicube-kojic-turmeric",
+      name: "كريم كبسولات كوجيك وكركم",
+      description: "حمض الكوجيك + كركم + نياسيناميد 5% — لتلطيف مظهر البهتان. 53 جم.",
+      price: 3900,
+      image: "assets/products/medicube-kojic-turmeric/hero-product.png?v=1",
+    },
+    {
+      id: "medicube-pdrn-collagen",
+      name: "كريم كبسولات PDRN والكولاجين الوردي",
+      description: "PDRN + نياسيناميد 5% — يدعم مظهراً أكثر تماسكًا ونعومة. 55 جم.",
+      price: 3900,
+      image: "assets/products/medicube-pdrn-collagen/hero-product.png?v=1",
+    },
+    {
       id: "niacinamide-txa-serum",
       name: "سيروم TXA + نياسيناميد 15% لتفتيح البقع",
       description: "سيروم مركز — TXA + نياسيناميد 15% — 30 مل.",
@@ -231,23 +266,29 @@
       });
   }
 
-  function isArenciaProduct(id) {
-    return String(id || "").indexOf("arencia-") === 0;
+  function isLineProduct(id) {
+    var s = String(id || "");
+    return s.indexOf("arencia-") === 0 || s.indexOf("medicube-") === 0;
   }
 
-  function arenciaLineCard() {
-    var line = CONFIG.ARENCIA_LINE || {};
+  function brandLines() {
+    return [CONFIG.ARENCIA_LINE, CONFIG.MEDICUBE_LINE].filter(function (line) {
+      return line && line.groups;
+    });
+  }
+
+  function brandLineCard(line) {
     var mosaic = (line.mosaic || []).map(function (src) {
       return '<img src="' + escapeAttr(src) + '" alt="" />';
     }).join("");
     return (
-      '<article class="product-card product-card--brand" data-action="open-brand" data-href="' + escapeAttr(line.href || "arencia.html") + '">' +
+      '<article class="product-card product-card--brand" data-action="open-brand" data-href="' + escapeAttr(line.href) + '">' +
         '<div class="product-thumb product-thumb--mosaic">' +
-          '<span class="product-category">Arencia · 6 أنواع</span>' +
+          '<span class="product-category">' + escapeHtml(line.badge || "علامة واحدة") + "</span>" +
           '<div class="brand-mosaic">' + mosaic + "</div>" +
         "</div>" +
         '<div class="product-info">' +
-          "<h3>" + escapeHtml(line.name || "خط Arencia Booster Shot") + "</h3>" +
+          "<h3>" + escapeHtml(line.name || "") + "</h3>" +
           '<p class="product-desc">' + escapeHtml(line.lead || "") + "</p>" +
           '<div class="product-footer">' +
             '<span class="product-price">من ' + fmtPrice(line.priceFrom || 3900) + "</span>" +
@@ -264,7 +305,7 @@
       grid.innerHTML = '<p class="loading">لا توجد منتجات حالياً.</p>';
       return;
     }
-    var others = products.filter(function (p) { return !isArenciaProduct(p.id); });
+    var others = products.filter(function (p) { return !isLineProduct(p.id); });
     var cards = others.map(function (p) {
       var meta = productMeta(p.id);
       return (
@@ -284,11 +325,11 @@
         "</article>"
       );
     });
-    var hasArencia = products.some(function (p) { return isArenciaProduct(p.id); }) || (CONFIG.ARENCIA_LINE && CONFIG.ARENCIA_LINE.groups);
-    if (hasArencia) {
-      var insertAt = 1;
-      if (cards.length === 0) insertAt = 0;
-      cards.splice(Math.min(insertAt, cards.length), 0, arenciaLineCard());
+    var lines = brandLines();
+    if (lines.length) {
+      var insertAt = cards.length ? 1 : 0;
+      var brandCards = lines.map(brandLineCard);
+      cards.splice.apply(cards, [Math.min(insertAt, cards.length), 0].concat(brandCards));
     }
     grid.innerHTML = cards.join("");
   }

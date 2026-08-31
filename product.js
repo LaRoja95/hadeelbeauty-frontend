@@ -56,6 +56,41 @@
       price: 3900,
       image: "assets/products/arencia-vitamin-c-booster/hero-product.png?v=1",
     },
+    "medicube-txa-niacinamide": {
+      id: "medicube-txa-niacinamide",
+      name: "كريم كبسولات TXA + نياسيناميد",
+      description: "TXA + نياسيناميد 5% — كريم كبسولات يلطّف مظهر البقع الداكنة وتفاوت اللون. 55 جم.",
+      price: 3900,
+      image: "assets/products/medicube-txa-niacinamide/hero-product.png?v=1",
+    },
+    "medicube-vita-c": {
+      id: "medicube-vita-c",
+      name: "كريم كبسولات فيتامين سي",
+      description: "ماء فيتامين 50% + مشتقات فيتامين سي ونياسيناميد 5% — لإشراق البشرة. 55 جم.",
+      price: 3900,
+      image: "assets/products/medicube-vita-c/hero-product.png?v=1",
+    },
+    "medicube-hyaluronic": {
+      id: "medicube-hyaluronic",
+      name: "كريم كبسولات الهيالورونيك للترطيب",
+      description: "هيالورونات الصوديوم + بانتينول — ترطيب لطيف. 55 جم.",
+      price: 3900,
+      image: "assets/products/medicube-hyaluronic/hero-product.png?v=1",
+    },
+    "medicube-kojic-turmeric": {
+      id: "medicube-kojic-turmeric",
+      name: "كريم كبسولات كوجيك وكركم",
+      description: "حمض الكوجيك + كركم + نياسيناميد 5% — لتلطيف مظهر البهتان. 53 جم.",
+      price: 3900,
+      image: "assets/products/medicube-kojic-turmeric/hero-product.png?v=1",
+    },
+    "medicube-pdrn-collagen": {
+      id: "medicube-pdrn-collagen",
+      name: "كريم كبسولات PDRN والكولاجين الوردي",
+      description: "PDRN + نياسيناميد 5% — يدعم مظهراً أكثر تماسكًا ونعومة. 55 جم.",
+      price: 3900,
+      image: "assets/products/medicube-pdrn-collagen/hero-product.png?v=1",
+    },
     "niacinamide-txa-serum": {
       id: "niacinamide-txa-serum",
       name: "سيروم TXA + نياسيناميد 15% لتفتيح البقع",
@@ -436,9 +471,15 @@
           '</div>' +
           '<div class="pd-hero-copy">' +
             '<span class="section-badge">' + escapeHtml(profile.badge || "✨ HadeelBeauty") + '</span>' +
-            (String(p.id).indexOf("arencia-") === 0
-              ? '<p class="pd-brand-crumb"><a href="arencia.html">خط Arencia Booster Shot</a> · هذا النوع</p>'
-              : "") +
+            (function brandCrumb(id) {
+              if (String(id).indexOf("arencia-") === 0) {
+                return '<p class="pd-brand-crumb"><a href="arencia.html">خط Arencia Booster Shot</a> · هذا النوع</p>';
+              }
+              if (String(id).indexOf("medicube-") === 0) {
+                return '<p class="pd-brand-crumb"><a href="medicube.html">خط medicube Capsule Cream</a> · هذا النوع</p>';
+              }
+              return "";
+            })(p.id) +
             '<h1>' + escapeHtml(p.name) + '</h1>' +
             '<p class="pd-lead">' + escapeHtml(p.description) + '</p>' +
             '<div class="pd-price-row">' +
