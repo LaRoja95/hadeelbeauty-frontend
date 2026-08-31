@@ -91,6 +91,55 @@
       price: 3900,
       image: "assets/products/medicube-pdrn-collagen/hero-product.png?v=1",
     },
+    "anua-pdrn-hyaluron": {
+      id: "anua-pdrn-hyaluron",
+      name: "كريم Anua PDRN والهيالورونيك",
+      description: "PDRN + هيالورونيك — ترطيب يومي خفيف. 60 مل.",
+      price: 3900,
+      image: "assets/products/anua-pdrn-hyaluron/hero-product.png?v=1",
+    },
+    "anua-niacinamide-txa": {
+      id: "anua-niacinamide-txa",
+      name: "سيروم Anua نياسيناميد 10% + TXA 4%",
+      description: "نياسيناميد 10% + TXA 4% — يلطّف مظهر البقع. 30 مل.",
+      price: 3900,
+      image: "assets/products/anua-niacinamide-txa/hero-product.png?v=1",
+    },
+    "althea-345-mist": {
+      id: "althea-345-mist",
+      name: "رذاذ Dr. Althea 345 الكريمي",
+      description: "ماء نخالة الأرز + بانتينول — ترطيب خفيف. 60 مل.",
+      price: 3900,
+      image: "assets/products/althea-345-mist/hero-product.png?v=1",
+    },
+    "althea-345-cream": {
+      id: "althea-345-cream",
+      name: "كريم Dr. Althea 345 للتهدئة",
+      description: "نياسيناميد + بانتينول + سنتيلا — خالٍ من العطر. 50 مل.",
+      price: 3900,
+      image: "assets/products/althea-345-cream/hero-product.png?v=1",
+    },
+    "joseon-relief-sun": {
+      id: "joseon-relief-sun",
+      name: "واقي شمس Joseon بالأرز والبروبيوتيك",
+      description: "SPF50+ PA++++ — مرطّب للبشرة العادية والجافة. 50 مل.",
+      price: 3900,
+      image: "assets/products/joseon-relief-sun/hero-product.png?v=1",
+    },
+    "joseon-aqua-fresh": {
+      id: "joseon-aqua-fresh",
+      name: "واقي شمس Joseon Aqua-fresh",
+      description: "SPF50+ PA++++ — خفيف للبشرة المختلطة والدهنية. 50 مل.",
+      price: 3900,
+      image: "assets/products/joseon-aqua-fresh/hero-product.png?v=1",
+    },
+    "joseon-revive-eye": {
+      id: "joseon-revive-eye",
+      name: "سيروم Joseon لمحيط العين",
+      description: "جينسنغ + ريتينال — روتين ليلي. 30 مل.",
+      price: 3900,
+      image: "assets/products/joseon-revive-eye/hero-product.png?v=1",
+    },
     "niacinamide-txa-serum": {
       id: "niacinamide-txa-serum",
       name: "سيروم TXA + نياسيناميد 15% لتفتيح البقع",
@@ -472,11 +521,21 @@
           '<div class="pd-hero-copy">' +
             '<span class="section-badge">' + escapeHtml(profile.badge || "✨ HadeelBeauty") + '</span>' +
             (function brandCrumb(id) {
-              if (String(id).indexOf("arencia-") === 0) {
+              var s = String(id);
+              if (s.indexOf("arencia-") === 0) {
                 return '<p class="pd-brand-crumb"><a href="arencia.html">خط Arencia Booster Shot</a> · هذا النوع</p>';
               }
-              if (String(id).indexOf("medicube-") === 0) {
+              if (s.indexOf("medicube-") === 0) {
                 return '<p class="pd-brand-crumb"><a href="medicube.html">خط medicube Capsule Cream</a> · هذا النوع</p>';
+              }
+              if (s.indexOf("anua-") === 0) {
+                return '<p class="pd-brand-crumb"><a href="anua.html">خط Anua</a> · هذا النوع</p>';
+              }
+              if (s.indexOf("althea-") === 0) {
+                return '<p class="pd-brand-crumb"><a href="althea.html">خط Dr. Althea 345</a> · هذا النوع</p>';
+              }
+              if (s.indexOf("joseon-") === 0) {
+                return '<p class="pd-brand-crumb"><a href="joseon.html">خط Beauty of Joseon</a> · هذا النوع</p>';
               }
               return "";
             })(p.id) +

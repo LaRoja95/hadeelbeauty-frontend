@@ -97,6 +97,55 @@
       image: "assets/products/medicube-pdrn-collagen/hero-product.png?v=1",
     },
     {
+      id: "anua-pdrn-hyaluron",
+      name: "كريم Anua PDRN والهيالورونيك",
+      description: "PDRN + هيالورونيك — ترطيب يومي خفيف. 60 مل.",
+      price: 3900,
+      image: "assets/products/anua-pdrn-hyaluron/hero-product.png?v=1",
+    },
+    {
+      id: "anua-niacinamide-txa",
+      name: "سيروم Anua نياسيناميد 10% + TXA 4%",
+      description: "نياسيناميد 10% + TXA 4% — يلطّف مظهر البقع. 30 مل.",
+      price: 3900,
+      image: "assets/products/anua-niacinamide-txa/hero-product.png?v=1",
+    },
+    {
+      id: "althea-345-mist",
+      name: "رذاذ Dr. Althea 345 الكريمي",
+      description: "ماء نخالة الأرز + بانتينول — ترطيب خفيف. 60 مل.",
+      price: 3900,
+      image: "assets/products/althea-345-mist/hero-product.png?v=1",
+    },
+    {
+      id: "althea-345-cream",
+      name: "كريم Dr. Althea 345 للتهدئة",
+      description: "نياسيناميد + بانتينول + سنتيلا — خالٍ من العطر. 50 مل.",
+      price: 3900,
+      image: "assets/products/althea-345-cream/hero-product.png?v=1",
+    },
+    {
+      id: "joseon-relief-sun",
+      name: "واقي شمس Joseon بالأرز والبروبيوتيك",
+      description: "SPF50+ PA++++ — مرطّب للبشرة العادية والجافة. 50 مل.",
+      price: 3900,
+      image: "assets/products/joseon-relief-sun/hero-product.png?v=1",
+    },
+    {
+      id: "joseon-aqua-fresh",
+      name: "واقي شمس Joseon Aqua-fresh",
+      description: "SPF50+ PA++++ — خفيف للبشرة المختلطة والدهنية. 50 مل.",
+      price: 3900,
+      image: "assets/products/joseon-aqua-fresh/hero-product.png?v=1",
+    },
+    {
+      id: "joseon-revive-eye",
+      name: "سيروم Joseon لمحيط العين",
+      description: "جينسنغ + ريتينال — روتين ليلي. 30 مل.",
+      price: 3900,
+      image: "assets/products/joseon-revive-eye/hero-product.png?v=1",
+    },
+    {
       id: "niacinamide-txa-serum",
       name: "سيروم TXA + نياسيناميد 15% لتفتيح البقع",
       description: "سيروم مركز — TXA + نياسيناميد 15% — 30 مل.",
@@ -268,16 +317,19 @@
 
   function isLineProduct(id) {
     var s = String(id || "");
-    return s.indexOf("arencia-") === 0 || s.indexOf("medicube-") === 0;
+    return s.indexOf("arencia-") === 0 || s.indexOf("medicube-") === 0 ||
+      s.indexOf("anua-") === 0 || s.indexOf("althea-") === 0 || s.indexOf("joseon-") === 0;
   }
 
   function brandLines() {
-    return [CONFIG.ARENCIA_LINE, CONFIG.MEDICUBE_LINE].filter(function (line) {
+    return [CONFIG.ARENCIA_LINE, CONFIG.MEDICUBE_LINE, CONFIG.ANUA_LINE, CONFIG.ALTHEA_LINE, CONFIG.JOSEON_LINE].filter(function (line) {
       return line && line.groups;
     });
   }
 
   function brandLineCard(line) {
+    var n = (line.mosaic || []).length;
+    var mosaicClass = n <= 2 ? " brand-mosaic--2" : (n === 3 ? " brand-mosaic--3" : "");
     var mosaic = (line.mosaic || []).map(function (src) {
       return '<img src="' + escapeAttr(src) + '" alt="" />';
     }).join("");
@@ -285,7 +337,7 @@
       '<article class="product-card product-card--brand" data-action="open-brand" data-href="' + escapeAttr(line.href) + '">' +
         '<div class="product-thumb product-thumb--mosaic">' +
           '<span class="product-category">' + escapeHtml(line.badge || "علامة واحدة") + "</span>" +
-          '<div class="brand-mosaic">' + mosaic + "</div>" +
+          '<div class="brand-mosaic' + mosaicClass + '">' + mosaic + "</div>" +
         "</div>" +
         '<div class="product-info">' +
           "<h3>" + escapeHtml(line.name || "") + "</h3>" +
