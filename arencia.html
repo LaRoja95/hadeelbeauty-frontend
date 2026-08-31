@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>منتج | HadeelBeauty</title>
-<meta name="description" content="منتجات عناية بالبشرة — HadeelBeauty. الدفع عند الاستلام في جميع ولايات الجزائر." />
+<title>خط Arencia Booster Shot | HadeelBeauty</title>
+<meta name="description" content="خط Arencia Booster Shot — علامة كورية واحدة بـ 6 تركيبات: إشراق، بقع، تجديد، تهدئة، شد ليلي، وتقشير. الدفع عند الاستلام في الجزائر." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=10" />
-<link rel="canonical" href="https://hadeelbeauty.store/product.html" />
+<link rel="canonical" href="https://hadeelbeauty.store/arencia.html" />
 <script src="config.js?v=7" charset="UTF-8"></script>
 <script>
 (function () {
@@ -45,25 +45,35 @@
       <span style="font-weight:900;font-size:1.2rem;color:var(--primary)">HadeelBeauty</span>
     </a>
     <a href="index.html" class="btn btn-outline pd-back">← المتجر</a>
-    <a href="#pdOrder" class="btn btn-primary pd-header-order">اطلب الآن</a>
+    <a href="#line-products" class="btn btn-primary">اختاري النوع</a>
   </div>
 </header>
 
-<main class="product-page" id="productPage">
-  <p class="loading container">جاري تحميل المنتج...</p>
+<main class="arencia-page">
+  <section class="arencia-hero">
+    <div class="container arencia-hero-inner">
+      <span class="section-badge">Arencia · علامة واحدة</span>
+      <h1>خط <span class="text-gradient">Booster Shot</span></h1>
+      <p class="arencia-lead">ستة تركيبات من نفس العلامة. كل واحدة لنوع احتياج: إشراق، بقع، تجديد، تهدئة، شد ليلي، أو تقشير. تختاري النوع من داخل الخط — والدفع عند الاستلام.</p>
+      <ul class="arencia-hero-pills">
+        <li>🇰🇷 علامة كورية واحدة</li>
+        <li>6 أنواع حسب البشرة</li>
+        <li>30 مل · COD</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="line-products" class="arencia-line">
+    <div class="container">
+      <div class="arencia-filters" id="arenciaFilters" role="tablist" aria-label="أنواع الخط"></div>
+      <div id="arenciaGroups">
+        <p class="loading">جاري تحميل الخط...</p>
+      </div>
+    </div>
+  </section>
 </main>
 
-<div class="pd-sticky-bar" id="stickyBar" hidden>
-  <div class="container pd-sticky-inner">
-    <div class="pd-sticky-info">
-      <strong id="stickyPrice">3500 دج</strong>
-      <span class="muted">الدفع عند الاستلام</span>
-    </div>
-    <button class="btn btn-primary" id="stickyAddBtn">اطلب الآن</button>
-  </div>
-</div>
-
 <script src="tracking.js?v=5" charset="UTF-8"></script>
-<script src="product.js?v=11" charset="UTF-8"></script>
+<script src="arencia.js?v=1" charset="UTF-8"></script>
 </body>
 </html>

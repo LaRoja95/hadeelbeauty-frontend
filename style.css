@@ -2309,3 +2309,141 @@ a { color: inherit; text-decoration: none; }
   .pd-hero-media { order: 2; }
   .pd-back { display: none; }
 }
+
+.pd-brand-crumb {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.pd-brand-crumb a {
+  color: var(--brand-green-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.product-card--brand {
+  border: 1px solid rgba(158, 74, 88, 0.18);
+}
+
+.product-thumb--mosaic {
+  background: linear-gradient(145deg, #f7f1ea 0%, #efe4dc 100%);
+}
+
+.brand-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  gap: 4px;
+  padding: 28px 18px 14px;
+}
+
+.brand-mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 10px;
+}
+
+.arencia-page {
+  padding-bottom: 48px;
+}
+
+.arencia-hero {
+  background: linear-gradient(145deg, #fff8f0 0%, var(--cream) 60%, #fff 100%);
+  padding: 36px 0 28px;
+}
+
+.arencia-hero-inner {
+  max-width: 720px;
+}
+
+.arencia-hero h1 {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 900;
+  color: var(--brand-green-deep);
+  line-height: 1.35;
+  margin: 10px 0 12px;
+}
+
+.arencia-lead {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0 0 16px;
+}
+
+.arencia-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.arencia-hero-pills li {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.arencia-line {
+  padding: 8px 0 24px;
+}
+
+.arencia-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 22px;
+}
+
+.arencia-chip {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--brand-green-deep);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.arencia-chip.is-active {
+  background: var(--brand-green-deep);
+  color: #fff;
+  border-color: var(--brand-green-deep);
+}
+
+.arencia-group {
+  margin-bottom: 36px;
+}
+
+.arencia-group-head h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  color: var(--brand-green-deep);
+}
+
+.arencia-group-head p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.arencia-card-kicker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--brand-green-dark);
+}

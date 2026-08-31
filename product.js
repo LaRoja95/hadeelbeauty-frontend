@@ -436,6 +436,9 @@
           '</div>' +
           '<div class="pd-hero-copy">' +
             '<span class="section-badge">' + escapeHtml(profile.badge || "✨ HadeelBeauty") + '</span>' +
+            (String(p.id).indexOf("arencia-") === 0
+              ? '<p class="pd-brand-crumb"><a href="arencia.html">خط Arencia Booster Shot</a> · هذا النوع</p>'
+              : "") +
             '<h1>' + escapeHtml(p.name) + '</h1>' +
             '<p class="pd-lead">' + escapeHtml(p.description) + '</p>' +
             '<div class="pd-price-row">' +

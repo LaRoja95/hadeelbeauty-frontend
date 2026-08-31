@@ -366,4 +366,43 @@ window.HADEELBEAUTY_CONFIG = {
       gallery: false,
     },
   },
+
+  ARENCIA_LINE: {
+    href: "arencia.html",
+    name: "خط Arencia Booster Shot",
+    lead: "علامة كورية واحدة. 6 تركيبات — تختاري النوع حسب احتياج بشرتك.",
+    priceFrom: 3900,
+    mosaic: [
+      "assets/products/arencia-nad-booster/hero-product.png?v=1",
+      "assets/products/arencia-txa-booster/hero-product.png?v=1",
+      "assets/products/arencia-retinal-booster/hero-product.png?v=1",
+      "assets/products/arencia-vitamin-c-booster/hero-product.png?v=1",
+    ],
+    groups: [
+      {
+        id: "brighten",
+        title: "إشراق وتوحيد اللون",
+        blurb: "للبهتان والبقع الداكنة",
+        productIds: ["arencia-vitamin-c-booster", "arencia-txa-booster"],
+      },
+      {
+        id: "renew",
+        title: "تجديد وحيوية",
+        blurb: "للبشرة الباهتة والحساسة",
+        productIds: ["arencia-nad-booster", "arencia-pdrn-booster"],
+      },
+      {
+        id: "firm",
+        title: "شد ليلي",
+        blurb: "لثبات المظهر وعلامات التعب",
+        productIds: ["arencia-retinal-booster"],
+      },
+      {
+        id: "exfoliate",
+        title: "تقشير وتنعيم",
+        blurb: "للملمس الخشن والاحتقان",
+        productIds: ["arencia-eraser-glycolic"],
+      },
+    ],
+  },
 };

@@ -231,13 +231,41 @@
       });
   }
 
+  function isArenciaProduct(id) {
+    return String(id || "").indexOf("arencia-") === 0;
+  }
+
+  function arenciaLineCard() {
+    var line = CONFIG.ARENCIA_LINE || {};
+    var mosaic = (line.mosaic || []).map(function (src) {
+      return '<img src="' + escapeAttr(src) + '" alt="" />';
+    }).join("");
+    return (
+      '<article class="product-card product-card--brand" data-action="open-brand" data-href="' + escapeAttr(line.href || "arencia.html") + '">' +
+        '<div class="product-thumb product-thumb--mosaic">' +
+          '<span class="product-category">Arencia · 6 أنواع</span>' +
+          '<div class="brand-mosaic">' + mosaic + "</div>" +
+        "</div>" +
+        '<div class="product-info">' +
+          "<h3>" + escapeHtml(line.name || "خط Arencia Booster Shot") + "</h3>" +
+          '<p class="product-desc">' + escapeHtml(line.lead || "") + "</p>" +
+          '<div class="product-footer">' +
+            '<span class="product-price">من ' + fmtPrice(line.priceFrom || 3900) + "</span>" +
+            '<span class="product-cod">اختاري النوع</span>' +
+          "</div>" +
+        "</div>" +
+      "</article>"
+    );
+  }
+
   function renderProductGrid(products) {
     var grid = $("#productGrid");
     if (!products.length) {
       grid.innerHTML = '<p class="loading">لا توجد منتجات حالياً.</p>';
       return;
     }
-    grid.innerHTML = products.map(function (p) {
+    var others = products.filter(function (p) { return !isArenciaProduct(p.id); });
+    var cards = others.map(function (p) {
       var meta = productMeta(p.id);
       return (
         '<article class="product-card" data-product-id="' + escapeAttr(p.id) + '" data-action="open-product">' +
@@ -255,7 +283,14 @@
           "</div>" +
         "</article>"
       );
-    }).join("");
+    });
+    var hasArencia = products.some(function (p) { return isArenciaProduct(p.id); }) || (CONFIG.ARENCIA_LINE && CONFIG.ARENCIA_LINE.groups);
+    if (hasArencia) {
+      var insertAt = 1;
+      if (cards.length === 0) insertAt = 0;
+      cards.splice(Math.min(insertAt, cards.length), 0, arenciaLineCard());
+    }
+    grid.innerHTML = cards.join("");
   }
 
   function escapeHtml(str) {
@@ -583,6 +618,9 @@
     switch (action) {
       case "open-product":
         window.location.href = "product.html?id=" + encodeURIComponent(target.getAttribute("data-product-id"));
+        break;
+      case "open-brand":
+        window.location.href = target.getAttribute("data-href") || "arencia.html";
         break;
       case "close-product":
         closeProduct();
