@@ -680,7 +680,7 @@ window.HADEELBEAUTY_CONFIG = {
     name: "خط Arencia Booster Shot",
     badge: "Arencia · 6 أنواع",
     lead: "علامة كورية واحدة. 6 تركيبات — تختاري النوع حسب احتياج بشرتك.",
-    priceFrom: 3900,
+    priceFrom: 2500,
     mosaic: [
       "assets/products/arencia-nad-booster/hero-product.png?v=1",
       "assets/products/arencia-txa-booster/hero-product.png?v=1",
@@ -720,7 +720,7 @@ window.HADEELBEAUTY_CONFIG = {
     name: "خط medicube Capsule Cream",
     badge: "medicube · 5 أنواع",
     lead: "علامة كورية واحدة. 5 كريمات كبسولات — تختاري النوع حسب احتياج بشرتك.",
-    priceFrom: 3900,
+    priceFrom: 2500,
     mosaic: [
       "assets/products/medicube-txa-niacinamide/hero-product.png?v=1",
       "assets/products/medicube-vita-c/hero-product.png?v=1",
@@ -754,7 +754,7 @@ window.HADEELBEAUTY_CONFIG = {
     name: "خط Anua",
     badge: "Anua · 2 أنواع",
     lead: "علامة كورية واحدة. كريم PDRN للترطيب، أو سيروم نياسيناميد + TXA للبقع.",
-    priceFrom: 3900,
+    priceFrom: 2500,
     mosaic: [
       "assets/products/anua-pdrn-hyaluron/hero-product.png?v=1",
       "assets/products/anua-niacinamide-txa/hero-product.png?v=1",
@@ -774,8 +774,8 @@ window.HADEELBEAUTY_CONFIG = {
       },
     ],
     fallback: [
-      { id: "anua-pdrn-hyaluron", name: "كريم Anua PDRN والهيالورونيك", description: "PDRN + هيالورونيك — ترطيب يومي خفيف. 60 مل.", price: 3900, image: "assets/products/anua-pdrn-hyaluron/hero-product.png?v=1" },
-      { id: "anua-niacinamide-txa", name: "سيروم Anua نياسيناميد 10% + TXA 4%", description: "نياسيناميد 10% + TXA 4% — يلطّف مظهر البقع. 30 مل.", price: 3900, image: "assets/products/anua-niacinamide-txa/hero-product.png?v=1" },
+      { id: "anua-pdrn-hyaluron", name: "كريم Anua PDRN والهيالورونيك", description: "PDRN + هيالورونيك — ترطيب يومي خفيف. 60 مل.", price: 2500, image: "assets/products/anua-pdrn-hyaluron/hero-product.png?v=1" },
+      { id: "anua-niacinamide-txa", name: "سيروم Anua نياسيناميد 10% + TXA 4%", description: "نياسيناميد 10% + TXA 4% — يلطّف مظهر البقع. 30 مل.", price: 2500, image: "assets/products/anua-niacinamide-txa/hero-product.png?v=1" },
     ],
   },
 
@@ -784,7 +784,7 @@ window.HADEELBEAUTY_CONFIG = {
     name: "خط Dr. Althea 345",
     badge: "Dr. Althea · 2 أنواع",
     lead: "علامة كورية واحدة. رذاذ كريمي للترطيب، أو كريم تهدئة لآثار البثور.",
-    priceFrom: 3900,
+    priceFrom: 2500,
     mosaic: [
       "assets/products/althea-345-mist/hero-product.png?v=1",
       "assets/products/althea-345-cream/hero-product.png?v=1",
@@ -804,8 +804,8 @@ window.HADEELBEAUTY_CONFIG = {
       },
     ],
     fallback: [
-      { id: "althea-345-mist", name: "رذاذ Dr. Althea 345 الكريمي", description: "ماء نخالة الأرز + بانتينول — ترطيب خفيف. 60 مل.", price: 3900, image: "assets/products/althea-345-mist/hero-product.png?v=1" },
-      { id: "althea-345-cream", name: "كريم Dr. Althea 345 للتهدئة", description: "نياسيناميد + بانتينول + سنتيلا — خالٍ من العطر. 50 مل.", price: 3900, image: "assets/products/althea-345-cream/hero-product.png?v=1" },
+      { id: "althea-345-mist", name: "رذاذ Dr. Althea 345 الكريمي", description: "ماء نخالة الأرز + بانتينول — ترطيب خفيف. 60 مل.", price: 2500, image: "assets/products/althea-345-mist/hero-product.png?v=1" },
+      { id: "althea-345-cream", name: "كريم Dr. Althea 345 للتهدئة", description: "نياسيناميد + بانتينول + سنتيلا — خالٍ من العطر. 50 مل.", price: 2500, image: "assets/products/althea-345-cream/hero-product.png?v=1" },
     ],
   },
 
@@ -814,7 +814,7 @@ window.HADEELBEAUTY_CONFIG = {
     name: "خط Beauty of Joseon",
     badge: "Joseon · 3 أنواع",
     lead: "علامة كورية واحدة. واقيان شمس حسب نوع البشرة، وسيروم محيط العين ليلاً.",
-    priceFrom: 3900,
+    priceFrom: 2500,
     mosaic: [
       "assets/products/joseon-relief-sun/hero-product.png?v=1",
       "assets/products/joseon-aqua-fresh/hero-product.png?v=1",
@@ -835,9 +835,9 @@ window.HADEELBEAUTY_CONFIG = {
       },
     ],
     fallback: [
-      { id: "joseon-relief-sun", name: "واقي شمس Joseon بالأرز والبروبيوتيك", description: "SPF50+ PA++++ — مرطّب للبشرة العادية والجافة. 50 مل.", price: 3900, image: "assets/products/joseon-relief-sun/hero-product.png?v=1" },
-      { id: "joseon-aqua-fresh", name: "واقي شمس Joseon Aqua-fresh", description: "SPF50+ PA++++ — خفيف للبشرة المختلطة والدهنية. 50 مل.", price: 3900, image: "assets/products/joseon-aqua-fresh/hero-product.png?v=1" },
-      { id: "joseon-revive-eye", name: "سيروم Joseon لمحيط العين", description: "جينسنغ + ريتينال — روتين ليلي. 30 مل.", price: 3900, image: "assets/products/joseon-revive-eye/hero-product.png?v=1" },
+      { id: "joseon-relief-sun", name: "واقي شمس Joseon بالأرز والبروبيوتيك", description: "SPF50+ PA++++ — مرطّب للبشرة العادية والجافة. 50 مل.", price: 2500, image: "assets/products/joseon-relief-sun/hero-product.png?v=1" },
+      { id: "joseon-aqua-fresh", name: "واقي شمس Joseon Aqua-fresh", description: "SPF50+ PA++++ — خفيف للبشرة المختلطة والدهنية. 50 مل.", price: 2500, image: "assets/products/joseon-aqua-fresh/hero-product.png?v=1" },
+      { id: "joseon-revive-eye", name: "سيروم Joseon لمحيط العين", description: "جينسنغ + ريتينال — روتين ليلي. 30 مل.", price: 2500, image: "assets/products/joseon-revive-eye/hero-product.png?v=1" },
     ],
   },
 };

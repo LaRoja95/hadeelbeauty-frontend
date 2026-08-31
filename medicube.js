@@ -138,11 +138,11 @@
   });
 
   var FALLBACK = [
-    { id: "medicube-txa-niacinamide", name: "كريم كبسولات TXA + نياسيناميد", description: "TXA + نياسيناميد 5% — يلطّف مظهر البقع الداكنة. 55 جم.", price: 3900, image: "assets/products/medicube-txa-niacinamide/hero-product.png?v=1" },
-    { id: "medicube-vita-c", name: "كريم كبسولات فيتامين سي", description: "ماء فيتامين 50% + فيتامين سي ونياسيناميد 5%. 55 جم.", price: 3900, image: "assets/products/medicube-vita-c/hero-product.png?v=1" },
-    { id: "medicube-hyaluronic", name: "كريم كبسولات الهيالورونيك للترطيب", description: "هيالورونات + بانتينول — ترطيب لطيف. 55 جم.", price: 3900, image: "assets/products/medicube-hyaluronic/hero-product.png?v=1" },
-    { id: "medicube-kojic-turmeric", name: "كريم كبسولات كوجيك وكركم", description: "حمض الكوجيك + كركم + نياسيناميد 5%. 53 جم.", price: 3900, image: "assets/products/medicube-kojic-turmeric/hero-product.png?v=1" },
-    { id: "medicube-pdrn-collagen", name: "كريم كبسولات PDRN والكولاجين الوردي", description: "PDRN + نياسيناميد 5% — تماسك ونعومة. 55 جم.", price: 3900, image: "assets/products/medicube-pdrn-collagen/hero-product.png?v=1" },
+    { id: "medicube-txa-niacinamide", name: "كريم كبسولات TXA + نياسيناميد", description: "TXA + نياسيناميد 5% — يلطّف مظهر البقع الداكنة. 55 جم.", price: 2500, image: "assets/products/medicube-txa-niacinamide/hero-product.png?v=1" },
+    { id: "medicube-vita-c", name: "كريم كبسولات فيتامين سي", description: "ماء فيتامين 50% + فيتامين سي ونياسيناميد 5%. 55 جم.", price: 2500, image: "assets/products/medicube-vita-c/hero-product.png?v=1" },
+    { id: "medicube-hyaluronic", name: "كريم كبسولات الهيالورونيك للترطيب", description: "هيالورونات + بانتينول — ترطيب لطيف. 55 جم.", price: 2500, image: "assets/products/medicube-hyaluronic/hero-product.png?v=1" },
+    { id: "medicube-kojic-turmeric", name: "كريم كبسولات كوجيك وكركم", description: "حمض الكوجيك + كركم + نياسيناميد 5%. 53 جم.", price: 2500, image: "assets/products/medicube-kojic-turmeric/hero-product.png?v=1" },
+    { id: "medicube-pdrn-collagen", name: "كريم كبسولات PDRN والكولاجين الوردي", description: "PDRN + نياسيناميد 5% — تماسك ونعومة. 55 جم.", price: 2500, image: "assets/products/medicube-pdrn-collagen/hero-product.png?v=1" },
   ];
 
   fetch(apiUrl("/api/products"))

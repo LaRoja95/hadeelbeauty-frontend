@@ -143,12 +143,12 @@
   });
 
   var FALLBACK = [
-    { id: "arencia-nad-booster", name: "سيروم NAD+ لتجديد حيوية البشرة", description: "NAD+ 5% + ريسفيراترول وببتيدات — مرطب للوجه ومحيط العين. 30 مل.", price: 3900, image: "assets/products/arencia-nad-booster/hero-product.png?v=1" },
-    { id: "arencia-eraser-glycolic", name: "بوستر حمض الجليكوليك لتنعيم البشرة", description: "حمض الجليكوليك + BHA — تقشير لطيف. 30 مل.", price: 3900, image: "assets/products/arencia-eraser-glycolic/hero-product.png?v=1" },
-    { id: "arencia-txa-booster", name: "سيروم TXA لتوحيد لون البشرة", description: "TXA 5% + ببتيدات — يلطّف مظهر البقع الداكنة. 30 مل.", price: 3900, image: "assets/products/arencia-txa-booster/hero-product.png?v=1" },
-    { id: "arencia-pdrn-booster", name: "سيروم PDRN لتهدئة وتجديد البشرة", description: "Rosy-PDRN 5% + ببتيدات — للبشرة الحساسة. 30 مل.", price: 3900, image: "assets/products/arencia-pdrn-booster/hero-product.png?v=1" },
-    { id: "arencia-retinal-booster", name: "سيروم ريتينال ليلي لشد البشرة", description: "ريتينال 2% + كافيين — روتين ليلي. 30 مل.", price: 3900, image: "assets/products/arencia-retinal-booster/hero-product.png?v=1" },
-    { id: "arencia-vitamin-c-booster", name: "سيروم فيتامين سي + جلوتاثيون للإشراق", description: "فيتامين سي 5% + جلوتاثيون — إشراق. 30 مل.", price: 3900, image: "assets/products/arencia-vitamin-c-booster/hero-product.png?v=1" },
+    { id: "arencia-nad-booster", name: "سيروم NAD+ لتجديد حيوية البشرة", description: "NAD+ 5% + ريسفيراترول وببتيدات — مرطب للوجه ومحيط العين. 30 مل.", price: 2500, image: "assets/products/arencia-nad-booster/hero-product.png?v=1" },
+    { id: "arencia-eraser-glycolic", name: "بوستر حمض الجليكوليك لتنعيم البشرة", description: "حمض الجليكوليك + BHA — تقشير لطيف. 30 مل.", price: 2500, image: "assets/products/arencia-eraser-glycolic/hero-product.png?v=1" },
+    { id: "arencia-txa-booster", name: "سيروم TXA لتوحيد لون البشرة", description: "TXA 5% + ببتيدات — يلطّف مظهر البقع الداكنة. 30 مل.", price: 2500, image: "assets/products/arencia-txa-booster/hero-product.png?v=1" },
+    { id: "arencia-pdrn-booster", name: "سيروم PDRN لتهدئة وتجديد البشرة", description: "Rosy-PDRN 5% + ببتيدات — للبشرة الحساسة. 30 مل.", price: 2500, image: "assets/products/arencia-pdrn-booster/hero-product.png?v=1" },
+    { id: "arencia-retinal-booster", name: "سيروم ريتينال ليلي لشد البشرة", description: "ريتينال 2% + كافيين — روتين ليلي. 30 مل.", price: 2500, image: "assets/products/arencia-retinal-booster/hero-product.png?v=1" },
+    { id: "arencia-vitamin-c-booster", name: "سيروم فيتامين سي + جلوتاثيون للإشراق", description: "فيتامين سي 5% + جلوتاثيون — إشراق. 30 مل.", price: 2500, image: "assets/products/arencia-vitamin-c-booster/hero-product.png?v=1" },
   ];
   window.HADEELBEAUTY_ARENCIA_FALLBACK = FALLBACK;
 
