@@ -1377,6 +1377,7 @@ a { color: inherit; text-decoration: none; }
   margin-top: 4px;
 }
 
+.summary-ship span:last-child,
 .summary-free-ship span:last-child {
   color: var(--brand-green-dark);
   font-weight: 900;

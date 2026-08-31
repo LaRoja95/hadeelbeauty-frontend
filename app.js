@@ -183,36 +183,36 @@
   ];
 
   var FALLBACK_REGIONS = [
-    { id: "alger", name: "الجزائر العاصمة", shippingCost: 0 },
-    { id: "oran", name: "وهران", shippingCost: 0 },
-    { id: "constantine", name: "قسنطينة", shippingCost: 0 },
-    { id: "annaba", name: "عنابة", shippingCost: 0 },
-    { id: "setif", name: "سطيف", shippingCost: 0 },
-    { id: "bejaia", name: "بجاية", shippingCost: 0 },
-    { id: "tlemcen", name: "تلمسان", shippingCost: 0 },
-    { id: "batna", name: "باتنة", shippingCost: 0 },
-    { id: "blida", name: "البليدة", shippingCost: 0 },
-    { id: "tizi_ouzou", name: "تيزي وزو", shippingCost: 0 },
-    { id: "biskra", name: "بسكرة", shippingCost: 0 },
-    { id: "mostaganem", name: "مستغانم", shippingCost: 0 },
-    { id: "skikda", name: "سكيكدة", shippingCost: 0 },
-    { id: "tiaret", name: "تيارت", shippingCost: 0 },
-    { id: "medea", name: "المدية", shippingCost: 0 },
-    { id: "msila", name: "المسيلة", shippingCost: 0 },
-    { id: "guelma", name: "قالمة", shippingCost: 0 },
-    { id: "jijel", name: "جيجل", shippingCost: 0 },
-    { id: "chlef", name: "الشلف", shippingCost: 0 },
-    { id: "ouargla", name: "ورقلة", shippingCost: 0 },
-    { id: "bou_arreridj", name: "برج بوعريريج", shippingCost: 0 },
-    { id: "souk_ahras", name: "سوق أهراس", shippingCost: 0 },
-    { id: "boumerdes", name: "بومرداس", shippingCost: 0 },
-    { id: "tipaza", name: "تيبازة", shippingCost: 0 },
-    { id: "ain_defla", name: "عين الدفلى", shippingCost: 0 },
-    { id: "relizane", name: "غليزان", shippingCost: 0 },
-    { id: "mascara", name: "معسكر", shippingCost: 0 },
-    { id: "djelfa", name: "الجلفة", shippingCost: 0 },
-    { id: "laghouat", name: "الأغواط", shippingCost: 0 },
-    { id: "ghardaia", name: "غرداية", shippingCost: 0 },
+    { id: "alger", name: "الجزائر العاصمة", shippingCost: 400 },
+    { id: "oran", name: "وهران", shippingCost: 550 },
+    { id: "constantine", name: "قسنطينة", shippingCost: 550 },
+    { id: "annaba", name: "عنابة", shippingCost: 550 },
+    { id: "setif", name: "سطيف", shippingCost: 550 },
+    { id: "bejaia", name: "بجاية", shippingCost: 550 },
+    { id: "tlemcen", name: "تلمسان", shippingCost: 550 },
+    { id: "batna", name: "باتنة", shippingCost: 550 },
+    { id: "blida", name: "البليدة", shippingCost: 450 },
+    { id: "tizi_ouzou", name: "تيزي وزو", shippingCost: 450 },
+    { id: "biskra", name: "بسكرة", shippingCost: 700 },
+    { id: "mostaganem", name: "مستغانم", shippingCost: 550 },
+    { id: "skikda", name: "سكيكدة", shippingCost: 550 },
+    { id: "tiaret", name: "تيارت", shippingCost: 550 },
+    { id: "medea", name: "المدية", shippingCost: 450 },
+    { id: "msila", name: "المسيلة", shippingCost: 550 },
+    { id: "guelma", name: "قالمة", shippingCost: 550 },
+    { id: "jijel", name: "جيجل", shippingCost: 550 },
+    { id: "chlef", name: "الشلف", shippingCost: 550 },
+    { id: "ouargla", name: "ورقلة", shippingCost: 700 },
+    { id: "bou_arreridj", name: "برج بوعريريج", shippingCost: 550 },
+    { id: "souk_ahras", name: "سوق أهراس", shippingCost: 550 },
+    { id: "boumerdes", name: "بومرداس", shippingCost: 450 },
+    { id: "tipaza", name: "تيبازة", shippingCost: 450 },
+    { id: "ain_defla", name: "عين الدفلى", shippingCost: 550 },
+    { id: "relizane", name: "غليزان", shippingCost: 550 },
+    { id: "mascara", name: "معسكر", shippingCost: 550 },
+    { id: "djelfa", name: "الجلفة", shippingCost: 550 },
+    { id: "laghouat", name: "الأغواط", shippingCost: 550 },
+    { id: "ghardaia", name: "غرداية", shippingCost: 700 },
   ];
 
   var state = {
@@ -435,9 +435,8 @@
 
   function updateCheckoutSummary() {
     var subtotal = cartTotal();
-    var region = selectedRegion();
     $("#summarySubtotal").textContent = fmtPrice(subtotal);
-    $("#summaryShipping").textContent = region ? "مجاني" : "—";
+    $("#summaryShipping").textContent = "حسب الولاية";
     $("#summaryTotal").textContent = fmtPrice(subtotal);
   }
 

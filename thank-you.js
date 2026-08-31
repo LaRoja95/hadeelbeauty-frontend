@@ -158,6 +158,7 @@
 
     var firstName = (order.name || "").trim().split(/\s+/)[0] || "عزيزتي";
     var total = order.total != null ? order.total : order.subtotal;
+    var displayTotal = order.subtotal != null ? order.subtotal : total;
     var itemsHtml = formatItems(order.items);
 
     page.innerHTML = (
@@ -187,11 +188,11 @@
             (order.regionName
               ? '<div class="ty-summary-line"><span>الولاية</span><span>' + escapeHtml(order.regionName) + "</span></div>"
               : "") +
+            '<div class="ty-summary-line"><span>التوصيل</span><span>حسب الولاية</span></div>' +
             '<div class="ty-summary-line ty-summary-total">' +
               "<span>الإجمالي</span>" +
-              "<strong>" + fmtPrice(total) + "</strong>" +
+              "<strong>" + fmtPrice(displayTotal) + "</strong>" +
             "</div>" +
-            '<div class="ty-free-badge">🚚 توصيل مجاني</div>' +
           "</div>" +
         "</div>" +
 
@@ -215,7 +216,7 @@
 
         '<div class="ty-trust">' +
           '<div class="ty-trust-item"><span>💵</span><strong>دفع عند الاستلام</strong></div>' +
-          '<div class="ty-trust-item"><span>🚚</span><strong>توصيل مجاني</strong></div>' +
+          '<div class="ty-trust-item"><span>🚚</span><strong>توصيل لجميع الولايات</strong></div>' +
           '<div class="ty-trust-item"><span>✨</span><strong>منتجات أصلية</strong></div>' +
           '<div class="ty-trust-item"><span>🛡️</span><strong>فحص قبل الدفع</strong></div>' +
         "</div>" +
