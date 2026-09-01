@@ -2222,6 +2222,13 @@ a { color: inherit; text-decoration: none; }
 .pd-highlight strong { display: block; color: var(--brand-green-dark); margin-bottom: 6px; }
 .pd-highlight p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.7; }
 
+.pd-howto { padding: 8px 0 32px; }
+
+.pd-howto .pd-info-card {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
 .pd-gallery { padding: 20px 0 40px; }
 
 .pd-info-grid {

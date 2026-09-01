@@ -480,6 +480,20 @@
         }).join("")
       : "";
 
+    var howtoSection = profile.howto
+      ? ('<section class="pd-howto" id="pdHowto">' +
+          '<div class="container">' +
+            '<div class="section-head">' +
+              '<span class="section-badge">🧴 طريقة الاستعمال</span>' +
+              '<h2 class="section-title">كيف تستعملين الجل؟</h2>' +
+            '</div>' +
+            '<figure class="pd-info-card">' +
+              '<img src="' + escapeHtml(profile.howto.src) + '" alt="' + escapeHtml(profile.howto.alt || "طريقة الاستعمال") + '" />' +
+            '</figure>' +
+          '</div>' +
+        '</section>')
+      : "";
+
     var gallerySection = profile.gallery && gallery
       ? ('<section class="pd-gallery">' +
           '<div class="container">' +
@@ -600,6 +614,7 @@
         '</div>' +
       '</section>' +
       highlightsSection +
+      howtoSection +
       gallerySection +
       specsSection +
       '<section class="pd-bottom-cta">' +

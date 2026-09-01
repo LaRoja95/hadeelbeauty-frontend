@@ -192,6 +192,10 @@ window.HADEELBEAUTY_CONFIG = {
         ["المكونات البارزة", "سنتيلا آسياتيكا، نياسيناميد، أربوتين"],
         ["التوصيل", "58 ولاية — الدفع عند الاستلام"],
       ],
+      howto: {
+        src: "assets/products/scar-gel/v10-howto.png?v=2",
+        alt: "طريقة الاستعمال — تنظيف، طبقة رقيقة، تدليك خفيف مساءً",
+      },
       gallery: true,
     },
     "arencia-nad-booster": {
