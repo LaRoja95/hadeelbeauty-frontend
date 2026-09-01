@@ -239,6 +239,28 @@
     { src: "assets/products/scar-gel/v07-specs.png", alt: "مواصفات المنتج — 30 جرام" },
   ];
 
+  var BENEFITS_IMAGES = {
+    "scar-gel-tcm": "assets/products/scar-gel/ig-benefits.png?v=1",
+    "arencia-nad-booster": "assets/products/arencia-nad-booster/ig-benefits.png?v=1",
+    "arencia-eraser-glycolic": "assets/products/arencia-eraser-glycolic/ig-benefits.png?v=1",
+    "arencia-txa-booster": "assets/products/arencia-txa-booster/ig-benefits.png?v=1",
+    "arencia-pdrn-booster": "assets/products/arencia-pdrn-booster/ig-benefits.png?v=1",
+    "arencia-retinal-booster": "assets/products/arencia-retinal-booster/ig-benefits.png?v=1",
+    "arencia-vitamin-c-booster": "assets/products/arencia-vitamin-c-booster/ig-benefits.png?v=1",
+    "medicube-txa-niacinamide": "assets/products/medicube-txa-niacinamide/ig-benefits.png?v=1",
+    "medicube-vita-c": "assets/products/medicube-vita-c/ig-benefits.png?v=1",
+    "medicube-hyaluronic": "assets/products/medicube-hyaluronic/ig-benefits.png?v=1",
+    "medicube-kojic-turmeric": "assets/products/medicube-kojic-turmeric/ig-benefits.png?v=1",
+    "medicube-pdrn-collagen": "assets/products/medicube-pdrn-collagen/ig-benefits.png?v=1",
+    "anua-pdrn-hyaluron": "assets/products/anua-pdrn-hyaluron/ig-benefits.png?v=1",
+    "anua-niacinamide-txa": "assets/products/anua-niacinamide-txa/ig-benefits.png?v=1",
+    "althea-345-mist": "assets/products/althea-345-mist/ig-benefits.png?v=1",
+    "althea-345-cream": "assets/products/althea-345-cream/ig-benefits.png?v=1",
+    "joseon-relief-sun": "assets/products/joseon-relief-sun/ig-benefits.png?v=1",
+    "joseon-aqua-fresh": "assets/products/joseon-aqua-fresh/ig-benefits.png?v=1",
+    "joseon-revive-eye": "assets/products/joseon-revive-eye/ig-benefits.png?v=1",
+  };
+
   var state = {
     product: null,
     regions: {},
@@ -480,6 +502,21 @@
         }).join("")
       : "";
 
+    var benefitsSrc = BENEFITS_IMAGES[p.id];
+    var benefitsSection = benefitsSrc
+      ? ('<section class="pd-howto pd-benefits-card" id="pdBenefits">' +
+          '<div class="container">' +
+            '<div class="section-head">' +
+              '<span class="section-badge">✨ الفوائد</span>' +
+              '<h2 class="section-title">ماذا يقدّم هذا المنتج؟</h2>' +
+            '</div>' +
+            '<figure class="pd-info-card">' +
+              '<img src="' + escapeHtml(benefitsSrc) + '" alt="' + escapeHtml("فوائد " + p.name) + '" />' +
+            '</figure>' +
+          '</div>' +
+        '</section>')
+      : "";
+
     var howtoSection = profile.howto
       ? ('<section class="pd-howto" id="pdHowto">' +
           '<div class="container">' +
@@ -614,6 +651,7 @@
         '</div>' +
       '</section>' +
       highlightsSection +
+      benefitsSection +
       howtoSection +
       gallerySection +
       specsSection +
